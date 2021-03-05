@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { Layout } from 'antd'
 import { Outlet } from 'react-router-dom'
-import logo from '../assets/rs-logo.png'
+import rsLogo from '../assets/rs-logo.png'
 import './DefaultLayout.scss'
 
 const { Header, Content, Footer } = Layout
 
 const DefaultLayout: React.FC = () => (
   <Layout className="default-layout">
-    {/* <Header /> */}
+    <Header />
     <Content className="app-content">
-      <Outlet />
+      <Suspense fallback={null}>
+        <Outlet />
+      </Suspense>
     </Content>
     <Footer className="app-footer">
       <ul className="app-footer-list">
@@ -23,7 +25,7 @@ const DefaultLayout: React.FC = () => (
         <li className="app-footer-list__item">
           <div className="logo-container">
             <a href="https://rs.school/">
-              <img className="rs-logo" src={logo} alt="rs-school-logo" />
+              <img className="rs-logo" src={rsLogo} alt="rs-school-logo" />
             </a>
             <p>2021</p>
           </div>
