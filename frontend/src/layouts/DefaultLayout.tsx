@@ -3,8 +3,9 @@ import { Layout } from 'antd'
 import { Outlet } from 'react-router-dom'
 import rsLogo from '../assets/rs-logo.png'
 import './DefaultLayout.scss'
+import Header from '../components/Header/Header'
 
-const { Header, Content, Footer } = Layout
+const { Content, Footer } = Layout
 
 const DefaultLayout: React.FC = () => (
   <Layout className="default-layout">
