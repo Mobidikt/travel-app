@@ -3,7 +3,8 @@
     .video__wrapper{
         width: 85%;
         margin: 100px auto;
-    }
+        display: flex;
+        flex-direction: column;
     .video__title{
         font-family: 'Noto Sans';
         font-style: normal;
@@ -14,6 +15,7 @@
         text-align: center;
     }
         .video__iframe{
+            margin: 0 auto;
             width: 100%;
             max-width: 1220px;
             height: 673px;
@@ -32,6 +34,9 @@
             .video__iframe {
                 height: 370px;
             }
+            .video__title{
+                font-size: 36px;
+            }
         }
         @media screen and (max-width: 550px){
             .video__iframe {
@@ -43,4 +48,5 @@
                 height: 220px;
             }
         }
+    }
 }
