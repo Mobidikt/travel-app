@@ -1,6 +1,6 @@
 import { Button } from 'antd'
 import React from 'react'
-import { useLocation } from 'react-router'
+import { useLocation } from 'react-router-dom'
 import logo from '../../assets/logo.png'
 import LanguageSelect from '../LanguageSelect/LanguageSelect'
 import Search from '../Search/Search'
