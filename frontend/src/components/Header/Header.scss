@@ -1,0 +1,47 @@
+.header{
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+    min-height: 30vh;
+    background-image: url("https://avatars.mds.yandex.net/get-zen_doc/1886085/pub_5da0eeb3e6cb9b00ad47e1e6_5da0ef333642b66f6ba1de94/scale_1200");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 5vh 0 0 ;
+    .header__wrapper {
+        width: 85%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+    }
+    .header__title {
+        max-width: 300px;
+        color: #F2F2F2;
+        margin: 100px auto; 
+        font-size: 64px;
+        text-align: center;
+    }
+    .header__menu{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        min-width: 250px;
+    }
+    .header__btn{
+        background-color: transparent;
+        color: #F2F2F2;
+        padding: 5px 5px;
+    }
+    @media screen and (max-width: 750px){
+        .header__title {
+            margin-top: 70px;
+            font-size: 44px;
+        }
+    }
+}
+@media screen and (max-width: 750px){
+    .header__logo{
+        width: 50px;
+    }
+}
