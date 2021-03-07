@@ -1,4 +1,7 @@
 .header{
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: normal;
     width: 100%;
     min-height: 30vh;
     background-image: url("https://avatars.mds.yandex.net/get-zen_doc/1886085/pub_5da0eeb3e6cb9b00ad47e1e6_5da0ef333642b66f6ba1de94/scale_1200");
@@ -18,6 +21,17 @@
         margin: 100px auto; 
         font-size: 64px;
         text-align: center;
+    }
+    .header__menu{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        min-width: 250px;
+    }
+    .header__btn{
+        background-color: transparent;
+        color: #F2F2F2;
+        padding: 5px 5px;
     }
     @media screen and (max-width: 750px){
         .header__title {
