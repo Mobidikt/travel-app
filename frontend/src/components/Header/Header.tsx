@@ -7,6 +7,7 @@ import Search from '../Search/Search'
 import './Header.scss'
 
 const isLogin = false
+const country = 'Швейцария'
 // eslint-disable-next-line
 function Header() {
   const { pathname } = useLocation()
@@ -29,7 +30,7 @@ function Header() {
           )}
         </div>
       </div>
-      <h1 className="header__title">Travel app</h1>
+      <h1 className="header__title">{mainLocation ? 'Travel app' : `Travel to the ${country}`}</h1>
     </div>
   )
 }
