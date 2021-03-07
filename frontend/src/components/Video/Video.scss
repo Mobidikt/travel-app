@@ -1,0 +1,46 @@
+.video{
+    width: 100%;
+    .video__wrapper{
+        width: 85%;
+        margin: 100px auto;
+    }
+    .video__title{
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 48px;
+        line-height: 65px;
+        align-items: center;
+        text-align: center;
+    }
+        .video__iframe{
+            width: 100%;
+            max-width: 1220px;
+            height: 673px;
+        }
+        @media screen and (max-width: 1000px){
+            .video__iframe {
+                height: 479px;
+            }
+        }
+        @media screen and (max-width: 850px){
+            .video__iframe {
+                height: 407px;
+            }
+        }
+        @media screen and (max-width: 750px){
+            .video__iframe {
+                height: 370px;
+            }
+        }
+        @media screen and (max-width: 550px){
+            .video__iframe {
+                height: 270px;
+            }
+        }
+        @media screen and (max-width: 440px){
+            .video__iframe {
+                height: 220px;
+            }
+        }
+}

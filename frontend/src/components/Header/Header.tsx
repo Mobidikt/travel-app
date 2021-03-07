@@ -6,8 +6,8 @@ import LanguageSelect from '../LanguageSelect/LanguageSelect'
 import Search from '../Search/Search'
 import './Header.scss'
 
-const isLogin = false
-const country = 'Швейцария'
+const isLogin = false // вошел ли пользователь
+const country = 'Швейцария' // Буде подтягивать название страны
 // eslint-disable-next-line
 function Header() {
   const { pathname } = useLocation()
