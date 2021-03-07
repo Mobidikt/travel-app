@@ -1,0 +1,34 @@
+.video{
+    width: 100%;
+    .video__wrapper{
+        width: 85%;
+        margin: 100px auto;
+        display: flex;
+        flex-direction: column;
+    .video__title{
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 48px;
+        line-height: 65px;
+        align-items: center;
+        text-align: center;
+    }
+        .video__iframe{
+            margin: 0 auto;
+            width: 100%;
+            max-width: 1220px;
+            padding: 0 0 56.25% 0;
+            height:0;
+            overflow:hidden;
+            position:relative;
+        }
+        .video__iframe iframe,.video__iframe object,.video__iframe embed {
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+        }
+    }
+}
