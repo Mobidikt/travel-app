@@ -1,6 +1,7 @@
 import React from 'react'
 import './Video.scss'
 
+const urlVideo = 'https://www.youtube.com/embed/tQIgwox2nmA'
 // eslint-disable-next-line
 function Video() {
   return (
@@ -10,7 +11,7 @@ function Video() {
         <div className="video__iframe">
           <iframe
             title="video-country"
-            src="https://www.youtube.com/embed/tQIgwox2nmA"
+            src={urlVideo}
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
