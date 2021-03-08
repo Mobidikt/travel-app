@@ -1,0 +1,16 @@
+.country-cards {
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.ant-card {
+  margin: 10px;
+  &-cover {
+    img {
+      height: 228px;
+      object-fit: cover;
+    }
+  }
+}
