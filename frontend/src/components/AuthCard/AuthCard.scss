@@ -1,0 +1,54 @@
+.auth-card {
+  position: absolute;
+  right: 115px;
+  top: 95px;
+  max-width: 435px;
+  border: none;
+  border-radius: 15px;
+  background: #e4e3ffa6;
+
+
+  &--hide {
+    display: none;
+  }
+
+  &__close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+  }
+
+  &-header {
+    width: 260px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+
+    &__btn {
+      color: #929294;
+      font-size: 18px;
+
+      &:hover {
+        color: #161616;
+      }
+
+      &--active {
+        color: #161616 !important;
+      }
+    }
+  }
+}
+
+.ant-card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 350px) {
+  .ant-card-body {
+    padding: 0;
+  }
+}
