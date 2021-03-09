@@ -41,7 +41,7 @@ export interface RequestedCountriesFailedAction {
 
 export interface SetCurrentCountryAction {
   type: CountriesActionTypes.SET_CURRENT_COUNTRY;
-  payload: CountryType;
+  payload: number;
 }
 
 export interface FetchCountriesAction {
