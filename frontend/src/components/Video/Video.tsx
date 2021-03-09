@@ -1,9 +1,10 @@
 import React from 'react'
+import useTypedSelector from '../../hooks/useTypedSelector'
 import './Video.scss'
 
-const urlVideo = 'https://www.youtube.com/embed/tQIgwox2nmA'
 // eslint-disable-next-line
 function Video() {
+  const { currentCountry } = useTypedSelector((state) => state.countriesReducer)
   return (
     <section className="video">
       <div className="video__wrapper">
@@ -11,7 +12,7 @@ function Video() {
         <div className="video__iframe">
           <iframe
             title="video-country"
-            src={urlVideo}
+            src={currentCountry?.video}
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen

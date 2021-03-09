@@ -7,14 +7,14 @@ import Search from '../Search/Search'
 import useActions from '../../hooks/useActions'
 import AuthCard from '../AuthCard/AuthCard'
 import './Header.scss'
+import useTypedSelector from '../../hooks/useTypedSelector'
 
 const isLogin = false // вошел ли пользователь
-const country = 'Швейцария' // Буде подтягивать название страны
-// eslint-disable-next-line
-function Header() {
+
+const Header: React.FC = () => {
   const { pathname } = useLocation()
   const mainLocation = pathname === '/countries'
-
+  const { currentCountry } = useTypedSelector((state) => state.countriesReducer)
   const { setIsVisibleAuthCard } = useActions()
 
   return (
@@ -41,7 +41,9 @@ function Header() {
           )}
         </div>
       </div>
-      <h1 className="header__title">{mainLocation ? 'Travel app' : `Travel to the ${country}`}</h1>
+      <h1 className="header__title">
+        {mainLocation ? 'Travel app' : `Travel to the ${currentCountry?.country || ''}`}
+      </h1>
     </div>
   )
 }

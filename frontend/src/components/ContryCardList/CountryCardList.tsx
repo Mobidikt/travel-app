@@ -43,7 +43,7 @@ const countriesArr = [
     video: 'https://www.youtube.com/embed/SmVAoOGSvPQ',
   },
   {
-    id: 242425566,
+    id: 242425567,
     idCountry: 4,
     country: 'Албания',
     population: 2845955,
@@ -62,7 +62,7 @@ const CountryCardList: React.FC = () => {
     <div className="country-cards">
       <div className="country-cards__wrapper">
         {countriesArr.map((country) => (
-          <CountryCard key={country.idCountry} country={country} />
+          <CountryCard key={country.id} country={country} />
         ))}
       </div>
     </div>
