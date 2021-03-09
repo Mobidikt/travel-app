@@ -2,20 +2,9 @@ import React from 'react'
 import { Card } from 'antd'
 import { Link } from 'react-router-dom'
 import './CountryCard.scss'
+import { CountryType } from '../../store/types/countries'
 
 const { Meta } = Card
-
-type CountryType = {
-  id: number,
-  idCountry: number,
-  country: string,
-  population: number,
-  capital: string,
-  currency: string,
-  description: string,
-  picture: string,
-  video: string,
-}
 
 type CountryProps = {
   country: CountryType,
