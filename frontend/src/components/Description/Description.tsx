@@ -1,17 +1,16 @@
 import React from 'react'
+import useTypedSelector from '../../hooks/useTypedSelector'
 import './Description.scss'
-
-const capital = 'Берн'
 
 // eslint-disable-next-line
 function Description() {
+  const { currentCountry } = useTypedSelector((state) => state.countriesReducer)
   return (
     <section className="description">
-      <p className="description__text">
-        Суверенное государство, федеративная республика, состоящая из 26 кантонов с федеральными
-        властями в Берне. Крупнейшие города: Женева, Цюрих, Берн, Базель, Лозанна, Люцерн
+      <p className="description__text">{currentCountry?.description}</p>
+      <p className="description__capital">
+        {currentCountry?.capital} столица {currentCountry?.country}
       </p>
-      <p className="description__capital">{`${capital} столица Швейцарии`}</p>
     </section>
   )
 }
