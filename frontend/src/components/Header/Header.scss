@@ -9,26 +9,26 @@
     background-repeat: no-repeat;
     background-size: cover;
     padding: 5vh 0 0 ;
-    .header__wrapper {
+    &__wrapper {
         width: 85%;
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
     }
-    .header__title {
+    &__title {
         max-width: 90%;
         color: #F2F2F2;
         margin: 100px auto; 
         font-size: 64px;
         text-align: center;
     }
-    .header__menu{
+    &__menu{
         display: flex;
         align-items: center;
         justify-content: space-around;
         min-width: 250px;
     }
-    .header__btn{
+    &__btn{
         background-color: transparent;
         color: #F2F2F2;
         padding: 5px 5px;

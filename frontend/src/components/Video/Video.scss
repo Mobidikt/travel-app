@@ -1,20 +1,20 @@
 .video{
     width: 100%;
-    .video__wrapper{
+    &__wrapper{
         width: 85%;
         margin: 100px auto;
         display: flex;
         flex-direction: column;
-    .video__title{
-        font-family: 'Noto Sans';
-        font-style: normal;
-        font-weight: normal;
-        font-size: 48px;
-        line-height: 65px;
-        align-items: center;
-        text-align: center;
-    }
-        .video__iframe{
+        &__title{
+            font-family: 'Noto Sans';
+            font-style: normal;
+            font-weight: normal;
+            font-size: 48px;
+            line-height: 65px;
+            align-items: center;
+            text-align: center;
+        }
+        &__iframe{
             margin: 0 auto;
             width: 100%;
             max-width: 1220px;
