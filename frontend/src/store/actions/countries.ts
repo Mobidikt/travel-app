@@ -1,8 +1,8 @@
-import { SetCurrentCountryAction, CountriesActionTypes, CountryType } from '../types/countries'
+import { SetCurrentCountryAction, CountriesActionTypes } from '../types/countries'
 
-const setCurrentCountry = (country: CountryType): SetCurrentCountryAction => ({
+const setCurrentCountry = (id: number): SetCurrentCountryAction => ({
   type: CountriesActionTypes.SET_CURRENT_COUNTRY,
-  payload: country,
+  payload: id,
 })
 
 export default {
