@@ -1,0 +1,24 @@
+.ant-card {
+  margin: 15px;
+  flex-basis: 30%;
+
+  &-meta-detail {
+    text-align: center;
+  }
+
+
+  &-cover {
+    img {
+      height: 228px;
+      object-fit: cover;
+    }
+  }
+}
+
+
+
+@media (max-width: 876px) {
+  .ant-card {
+    flex-basis: 50%;
+  }
+}

@@ -1,0 +1,16 @@
+.country-cards {
+  margin-top: 90px;
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  margin-bottom: 80px;
+}
+
+
+@media (max-width: 876px) {
+  .country-cards__wrapper {
+    display: flex;
+    justify-content: center;
+  }
+}

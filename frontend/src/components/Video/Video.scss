@@ -6,14 +6,14 @@
         display: flex;
         flex-direction: column;
     .video__title{
-        font-family: 'Noto Sans';
-        font-style: normal;
-        font-weight: normal;
-        font-size: 48px;
-        line-height: 65px;
-        align-items: center;
-        text-align: center;
-    }
+            font-family: 'Noto Sans';
+            font-style: normal;
+            font-weight: normal;
+            font-size: 48px;
+            line-height: 65px;
+            align-items: center;
+            text-align: center;
+        }
         .video__iframe{
             margin: 0 auto;
             width: 100%;

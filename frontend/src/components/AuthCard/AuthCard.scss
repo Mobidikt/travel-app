@@ -1,7 +1,7 @@
 .auth-card {
   position: absolute;
-  right: 115px;
-  top: 95px;
+  right: 105px;
+  top: 85px;
   max-width: 435px;
   border: none;
   border-radius: 15px;
@@ -47,8 +47,14 @@
   align-items: center;
 }
 
-@media (max-width: 350px) {
+@media (max-width: 470px) {
+  .auth-card {
+    right: 0px;
+    top: 60px;
+  }
+
   .ant-card-body {
     padding: 0;
+ 
   }
 }

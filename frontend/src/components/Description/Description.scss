@@ -9,11 +9,11 @@
     letter-spacing: 0.03em;
     color: #161616;
     background-color: #E5E5E5;
-    .description__text{
+    &__text{
         text-align: justify;
         margin-bottom: 30px;
     }
-    .description__capital{
+    &__capital{
         margin: 0 auto;
         padding: 30px 0 40px;
         border-top: 1px solid #C4C4C4;
