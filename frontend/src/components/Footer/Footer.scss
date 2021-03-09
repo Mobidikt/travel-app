@@ -45,3 +45,14 @@
     margin: 0;
   }
 }
+
+@media (max-width: 622px) {
+  .app-footer-list {
+    flex-direction: column;
+  }
+
+
+  .logo-container {
+    display: none;
+  }
+}

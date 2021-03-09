@@ -48,7 +48,13 @@
 }
 
 @media (max-width: 350px) {
+  .auth-card {
+    right: 0px;
+    top: 60px;
+  }
+
   .ant-card-body {
     padding: 0;
+ 
   }
 }
