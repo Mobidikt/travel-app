@@ -27,6 +27,7 @@
     "rules": {
         "linebreak-style": 0,
         "semi": "off",
-        "@typescript-eslint/semi": ["off"]
+        "@typescript-eslint/semi": ["off"],
+        "react/prop-types": 0
     }
 }
