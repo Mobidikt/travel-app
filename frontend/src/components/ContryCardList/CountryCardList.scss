@@ -1,8 +1,11 @@
 .country-cards {
   margin-top: 90px;
   &__wrapper {
+    width: 85%;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
   }
   margin-bottom: 80px;
 }
