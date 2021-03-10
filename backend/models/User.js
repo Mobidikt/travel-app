@@ -18,6 +18,11 @@ const userScheme = new Schema({
       unique: true,
       dropDups: true,
     },
+    validate: (value) => {
+      if (!validator.isEmail(value)) {
+        throw new Error({ error: 'Invalid Email address' })
+      }
+    },
   },
   password: {
     type: String,

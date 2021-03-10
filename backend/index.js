@@ -1,13 +1,12 @@
 const express = require('express')
 const app = express()
-const bodyParser = require('body-parser')
 const flash = require('express-flash')
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 8000
 
 require('./db/db')
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
 app.use(flash())
 
 app.use(async (req, res, next) => {
@@ -21,4 +20,6 @@ app.use(async (req, res, next) => {
   next()
 })
 
-app.listen(port)
+app.listen(port, () => {
+  console.log(`we're online!`)
+})
