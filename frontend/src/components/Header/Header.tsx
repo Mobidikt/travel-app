@@ -3,7 +3,7 @@ import { Button } from 'antd'
 import { useLocation } from 'react-router-dom'
 import logo from '../../assets/logo.png'
 import LanguageSelect from '../LanguageSelect/LanguageSelect'
-import Search from '../Search/Search'
+import SearchField from '../SearchField/SearchField'
 import useActions from '../../hooks/useActions'
 import AuthCard from '../AuthCard/AuthCard'
 import './Header.scss'
@@ -26,7 +26,7 @@ const Header: React.FC = () => {
         </a>
         <div className="header__menu">
           <LanguageSelect />
-          {mainLocation ? <Search /> : null}
+          {mainLocation ? <SearchField /> : null}
           {isLogin ? (
             <button type="button">Выйти</button>
           ) : (

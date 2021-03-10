@@ -70,6 +70,19 @@ const reducer = (state = initialState, action: CountriesAction): CountriesState 
         currentCountry: newCurrentCountry || null,
       }
     }
+    case CountriesActionTypes.FILTER_COUNTRIES: {
+      const regExp = new RegExp(action.payload, 'ig')
+      // eslint-disable-next-line
+      const newCountries = initialState.countries.filter((country) => {
+        if (regExp.test(country.country) || regExp.test(country.capital)) {
+          return country
+        }
+      })
+      return {
+        ...state,
+        countries: newCountries.length ? newCountries : initialState.countries,
+      }
+    }
     default:
       return state
   }
