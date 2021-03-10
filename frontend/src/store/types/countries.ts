@@ -23,6 +23,7 @@ export enum CountriesActionTypes {
   REQUESTED_COUNTRIES_SUCCEEDED = 'COUNTRIES/REQUESTED_COUNTRIES_SUCCEEDED',
   REQUESTED_COUNTRIES_FAILED = 'COUNTRIES/REQUESTED_COUNTRIES_FAILED',
   SET_CURRENT_COUNTRY = 'COUNTRIES/SET_CURRENT_COUNTRY',
+  FILTER_COUNTRIES = 'COUNTRIES/FILTER_COUNTRIES',
 }
 
 export interface RequestedCountriesAction {
@@ -48,9 +49,15 @@ export interface FetchCountriesAction {
   type: CountriesActionTypes.FETCH_COUNTRIES;
 }
 
+export interface FilterCountriesAction {
+  type: CountriesActionTypes.FILTER_COUNTRIES;
+  payload: string;
+}
+
 export type CountriesAction =
   | RequestedCountriesAction
   | RequestedCountriesSucceededAction
   | RequestedCountriesFailedAction
   | SetCurrentCountryAction
   | FetchCountriesAction
+  | FilterCountriesAction

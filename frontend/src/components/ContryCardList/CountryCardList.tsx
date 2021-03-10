@@ -1,15 +1,10 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import CountryCard from '../CountryCard/CountryCard'
 import './CountryCardList.scss'
-import { CountriesState, CountryType } from '../../store/types/countries'
+import useTypedSelector from '../../hooks/useTypedSelector'
 
-type CountryCardListProps = {
-  countries: Array<CountryType>,
-}
-
-const CountryCardList: React.FC<CountryCardListProps> = (props) => {
-  const { countries } = props
+const CountryCardList: React.FC = () => {
+  const { countries } = useTypedSelector((state) => state.countriesReducer)
   return (
     <div className="country-cards">
       <div className="country-cards__wrapper">
@@ -21,12 +16,4 @@ const CountryCardList: React.FC<CountryCardListProps> = (props) => {
   )
 }
 
-const mapStateToProps = (state: { countriesReducer: CountriesState }) => {
-  const { countries }: CountriesState = state.countriesReducer
-  const props: CountryCardListProps = {
-    countries,
-  }
-  return props
-}
-
-export default connect(mapStateToProps)(CountryCardList)
+export default CountryCardList
