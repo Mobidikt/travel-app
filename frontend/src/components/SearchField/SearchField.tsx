@@ -9,15 +9,13 @@ const SearchField: React.FC = () => {
   const { filterCountries } = useActions()
 
   return (
-    <div className="search">
-      <Search
-        placeholder="Search Country"
-        autoFocus
-        allowClear
-        onSearch={filterCountries}
-        style={{ width: 200 }}
-      />
-    </div>
+    <Search
+      placeholder="Search Country"
+      autoFocus
+      allowClear
+      onSearch={filterCountries}
+      style={{ width: 200 }}
+    />
   )
 }
 
