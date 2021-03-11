@@ -1,12 +1,14 @@
 const express = require('express')
 const app = express()
 const flash = require('express-flash')
-const port = process.env.PORT || 8000
+const { PORT } = require('./config')
 
-require('./db/db')
+const { connectionDB } = require('./db/db')
+
+connectionDB()
+
 const countriesRouter = require('./routes/countries')
 //const attractionsRouter = require('./routes/attractions')
-
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
@@ -31,6 +33,6 @@ app.get('/', function (req, res) {
 app.use(countriesRouter)
 //app.use(attractionsRouter)
 
-app.listen(port, () => {
-  console.log(`we're online!`)
+app.listen(PORT, () => {
+  console.log(`we're online on ${PORT} port!`)
 })
