@@ -5,7 +5,7 @@ const port = process.env.PORT || 8000
 
 require('./db/db')
 const countriesRouter = require('./routes/countries')
-//const attractionsRouter = require('./routes/attractions')
+const attractionsRouter = require('./routes/attractions')
 
 
 app.use(express.json())
@@ -29,7 +29,7 @@ app.get('/', function (req, res) {
 })
 
 app.use(countriesRouter)
-//app.use(attractionsRouter)
+app.use(attractionsRouter)
 
 app.listen(port, () => {
   console.log(`we're online!`)
