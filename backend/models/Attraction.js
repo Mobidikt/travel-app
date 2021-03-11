@@ -3,15 +3,6 @@ const Schema = mongoose.Schema
 
 const attractionSchema = new Schema({
   _id: mongoose.Schema.Types.ObjectId,
-  id: {
-    type: Number,
-    required: true,
-    unique: true,
-    index: {
-      unique: true,
-      dropDups: true,
-    },
-  },
   idCountry: {
     type: Number,
     required: true,
@@ -26,7 +17,7 @@ const attractionSchema = new Schema({
     },
   },
   picture: {
-    type: Number,
+    type: String,
     required: true,
   },
   description: {
@@ -36,6 +27,6 @@ const attractionSchema = new Schema({
   versionKey: false,
 })
 
-const Attraction = mongoose.model('Country', attractionSchema)
+const Attraction = mongoose.model('Attraction', attractionSchema)
 
 module.exports = Attraction
