@@ -1,22 +1,28 @@
 import React from 'react'
 // import { useDispatch, useSelector } from 'react-redux'
+// import { AnyAction } from 'redux'
 import { Select } from 'antd'
 
-// import languageSelectors from '../store/selectors/language'
-// import setLanguage from '../store/actions/language'
+// import languageSelectors from '../../store/selectors/language'
+// import setLanguage from '../../store/actions/language'
 
 const { Option } = Select
+// type State = { a: string } // your state type
+// type AppDispatch = <State, any, AnyAction>
 
 const LanguageSelect = () => {
-  //  const dispatch:any = useDispatch()
-  //  const changeLanguage = (newLanguage) => {
-  //  dispatch(setLanguage(newLanguage))
-  //  }
-  //   const { language } = useSelector(languageSelectors.language)
+  // const dispatch = useDispatch()
+  // const changeLanguage = (newLanguage: string) => {
+  //   console.log(newLanguage)
+  //   dispatch(setLanguage(newLanguage))
+  // }
+  // const { language } = useSelector(languageSelectors.language)
+  // console.log(languageSelectors)
+  // console.log(language)
   return (
     <Select
       //   defaultValue={language === 'en' ? 'English' : language === 'ru' ? 'Russian' : 'German'}
-      //   onChange={changeLanguage}
+      // onChange={changeLanguage}
       defaultValue="en"
       style={{ width: 120 }}
     >

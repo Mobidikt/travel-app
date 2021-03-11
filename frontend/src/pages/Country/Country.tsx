@@ -19,7 +19,8 @@ const Country: React.FC = () => {
 
   useEffect(() => {
     setCurrentCountry(+id)
-  }, [id, setCurrentCountry])
+    // eslint-disable-next-line
+  }, [id])
 
   return currentCountry ? CountryPage : <h1>Нет страны с таким ID</h1>
 }
