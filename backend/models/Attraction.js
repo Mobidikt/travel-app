@@ -13,8 +13,8 @@ const attractionSchema = new Schema({
     },
   },
   idCountry: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Country',
+    type: Number,
+    required: true,
   },
   name: {
     type: String,

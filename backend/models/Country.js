@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const countrySchema = new Schema({
   _id: mongoose.Schema.Types.ObjectId,
   id: {
-    type: Number,
+    type: String,
     required: true,
     unique: true,
     index: {

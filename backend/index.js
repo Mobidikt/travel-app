@@ -4,6 +4,9 @@ const flash = require('express-flash')
 const port = process.env.PORT || 8000
 
 require('./db/db')
+const countriesRouter = require('./routes/countries')
+//const attractionsRouter = require('./routes/attractions')
+
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
@@ -19,6 +22,14 @@ app.use(async (req, res, next) => {
   )
   next()
 })
+
+app.get('/', function (req, res) {
+  console.log('index')
+  return res.send('work')
+})
+
+app.use(countriesRouter)
+//app.use(attractionsRouter)
 
 app.listen(port, () => {
   console.log(`we're online!`)
