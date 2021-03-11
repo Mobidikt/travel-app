@@ -1,11 +1,17 @@
 const mongoose = require('mongoose')
 require('dotenv').config()
 
-mongoose.set('useCreateIndex', true)
+const { MONGODB_URL } = require('../config')
 
-mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
-const db = mongoose.connection
-db.on('error', console.error.bind(console, 'connection error:'))
-db.once('open', function () {
-  // we're connected!
-})
+const connectionDB = () => {
+  mongoose
+    .connect(MONGODB_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false,
+    })
+    .then(() => console.log('MongoDB connected'))
+    .catch((error) => console.log(error))
+}
+
+exports.connectionDB = connectionDB
