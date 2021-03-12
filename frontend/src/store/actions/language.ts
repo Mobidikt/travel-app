@@ -1,8 +1,11 @@
 import INTL_SET_LANGUAGE from '../types/language'
 
-const setLanguage = (language: string) => ({
-  type: INTL_SET_LANGUAGE,
-  payload: { language },
-})
+export type SetLanguageAction = {
+  type: typeof INTL_SET_LANGUAGE,
+  payload: string,
+}
 
-export default setLanguage
+export const setLanguage = (language: string): SetLanguageAction => ({
+  type: INTL_SET_LANGUAGE,
+  payload: language,
+})
