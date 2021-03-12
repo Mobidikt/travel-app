@@ -20,7 +20,7 @@ const Country: React.FC = () => {
   const { id } = useParams()
 
   useEffect(() => {
-    setCurrentCountry(+id)
+    setCurrentCountry(id)
     // eslint-disable-next-line
   }, [id])
 

@@ -2,15 +2,10 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const countrySchema = new Schema({
-  _id: mongoose.Schema.Types.ObjectId,
   country: {
     type: String,
     required: true,
     unique: true,
-    index: {
-      unique: true,
-      dropDups: true,
-    },
   },
   population: {
     type: Number,
@@ -36,9 +31,12 @@ const countrySchema = new Schema({
     type: String,
     required: true,
   },
-  versionKey: false,
 })
 
-const Country = mongoose.model('Country', countrySchema)
+countrySchema.virtual('id').get(function () {
+  return this._id.toHexString()
+})
 
-module.exports = Country
+countrySchema.set('toJSON', { virtuals: true })
+
+module.exports = mongoose.model('Country', countrySchema)
