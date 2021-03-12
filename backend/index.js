@@ -9,6 +9,7 @@ connectionDB()
 
 const countriesRouter = require('./routes/countries')
 const attractionsRouter = require('./routes/attractions')
+const authRoutes = require('./routes/auth')
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
@@ -32,6 +33,7 @@ app.get('/', function (req, res) {
 
 app.use(countriesRouter)
 app.use(attractionsRouter)
+app.use('/auth', authRoutes)
 
 app.listen(PORT, () => {
   console.log(`we're online on ${PORT} port!`)
