@@ -13,8 +13,7 @@ const DefaultLayout: React.FC = () => {
 
   useEffect(() => {
     fetchCountries()
-    // eslint-disable-next-line
-  }, [])
+  }, [fetchCountries])
 
   return (
     <Layout className="default-layout">
