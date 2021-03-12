@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const morgan = require('morgan')
 const flash = require('express-flash')
 const { PORT } = require('./config')
 
@@ -11,8 +12,11 @@ const countriesRouter = require('./routes/countries')
 const attractionsRouter = require('./routes/attractions')
 const authRoutes = require('./routes/auth')
 
+app.use('/uploads', express.static('uploads'))
+
+app.use(morgan('dev'))
+app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
 app.use(flash())
 
 app.use(async (req, res, next) => {
