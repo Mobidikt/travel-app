@@ -33,4 +33,10 @@ const countrySchema = new Schema({
   },
 })
 
+countrySchema.virtual('id').get(function () {
+  return this._id.toHexString()
+})
+
+countrySchema.set('toJSON', { virtuals: true })
+
 module.exports = mongoose.model('Country', countrySchema)

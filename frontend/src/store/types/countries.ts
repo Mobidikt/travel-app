@@ -1,6 +1,5 @@
 export type CountryType = {
-  id: number,
-  idCountry: number,
+  _id: string,
   country: string,
   population: number,
   capital: string,
@@ -8,12 +7,13 @@ export type CountryType = {
   description: string,
   picture: string,
   video: string,
+  id: string,
 }
 
 export interface CountriesState {
   countries: Array<CountryType>;
   isLoading: boolean;
-  isError: boolean;
+  error: string | null;
   currentCountry: CountryType | null;
 }
 
@@ -42,7 +42,7 @@ export interface RequestedCountriesFailedAction {
 
 export interface SetCurrentCountryAction {
   type: CountriesActionTypes.SET_CURRENT_COUNTRY;
-  payload: number;
+  payload: string;
 }
 
 export interface FetchCountriesAction {
