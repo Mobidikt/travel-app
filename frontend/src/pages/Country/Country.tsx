@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import Description from '../../components/Description/Description'
+import Map from '../../components/Map/Map'
 import Video from '../../components/Video/Video'
 import useActions from '../../hooks/useActions'
 import useTypedSelector from '../../hooks/useTypedSelector'
@@ -13,6 +14,7 @@ const CountryPage = (
     <DateComponent />
     <Weather />
     <Video />
+    <Map />
   </div>
 )
 
