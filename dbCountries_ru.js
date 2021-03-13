@@ -11,6 +11,8 @@ const countries = [
     picture:
       'https://im0-tub-ru.yandex.net/i?id=c6aa5f2c4de30e8a6058d6e4a9f07894-l&n=33&w=576&h=720&q=60',
     video: 'https://www.youtube.com/embed/tQIgwox2nmA',
+    timeZone: 'Europe/Zurich',
+    zip: '3011',
     map: 'https://yandex.ru/map-widget/v1/-/CCUQnRgfgA',
   },
   {
@@ -25,6 +27,8 @@ const countries = [
     picture:
       'https://im0-tub-ru.yandex.net/i?id=767ea8cc1326a0e2587a6b33fc3f5847-l&n=33&w=624&h=720&q=60',
     video: 'https://www.youtube.com/embed/27r5PAyeTFg',
+    timeZone: 'America/Santo_Domingo',
+    zip: '10210',
     map: 'https://yandex.ru/map-widget/v1/-/CCUQnRc9GC',
   },
   {
@@ -39,6 +43,8 @@ const countries = [
     picture:
       'https://im0-tub-ru.yandex.net/i?id=6e48385081e754a7658be768f9a440ac-l&n=33&w=967&h=720&q=60',
     video: 'https://www.youtube.com/embed/SmVAoOGSvPQ',
+    timeZone: 'America/Caracas',
+    zip: '7940068',
     map: 'https://yandex.ru/map-widget/v1/-/CCUQnRcRTB',
   },
   {
@@ -53,6 +59,8 @@ const countries = [
     picture:
       'https://im0-tub-ru.yandex.net/i?id=c88f410e342d984a30f1622b3e509a80-l&n=33&w=540&h=720&q=60',
     video: 'https://www.youtube.com/embed/gwgIiYI43qs',
+    timeZone: 'Europe/Tirane',
+    zip: '1010',
     map: 'https://yandex.ru/map-widget/v1/-/CCUQnRWFxC',
   },
   {
@@ -66,6 +74,8 @@ const countries = [
       'Государство в Центральной Европе. Площадь территории - 357 408,74 км². Численность населения на 30 сентября 2019 года - 83 149 300 жителей. Занимает 18-е место в мире по численности населения и 62-е в мире по территории.',
     picture: 'https://www.1zoom.ru/big2/982/324344-svetik.jpg',
     video: 'https://www.youtube.com/embed/hbb4PYiSnVs',
+    timeZone: 'Europe/Berlin',
+    zip: '10117',
     map: 'https://yandex.ru/map-widget/v1/-/CCUQnRSgpA',
   },
   {
@@ -80,6 +90,8 @@ const countries = [
     picture:
       'https://im0-tub-ru.yandex.net/i?id=39f0118c1171dfc754ad6a425c68e615-l&n=33&w=480&h=720&q=60',
     video: 'https://www.youtube.com/embed/GSlEfFM7CFo',
+    timeZone: 'Europe/Dublin',
+    zip: 'D01',
     map: 'https://yandex.ru/map-widget/v1/-/CCUQnRSESA',
   },
   {
@@ -94,6 +106,8 @@ const countries = [
     picture:
       'https://cdn.fishki.net/upload/post/2019/05/22/2985752/015ae4ee2b27057390111dab27044553.jpg',
     video: 'https://www.youtube.com/embed/0xluX6E2tKo',
+    timeZone: 'Asia/Tbilisi',
+    zip: '0100',
     map: 'https://yandex.ru/map-widget/v1/-/CCUQnRGMCA',
   },
   {
@@ -108,6 +122,8 @@ const countries = [
     picture:
       'https://im0-tub-ru.yandex.net/i?id=74dcfc8ea1de9c8f9c102b1f5276be26&n=13',
     video: 'https://www.youtube.com/embed/fibYq834w14',
+    timeZone: 'Europe/Tallinn',
+    zip: '10148',
     map: 'https://yandex.ru/map-widget/v1/-/CCUQnYXwpC',
   },
 ];
