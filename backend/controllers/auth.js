@@ -42,7 +42,7 @@ module.exports.register = async function (req, res) {
       return res.status(400).json({ message: 'Ошибка при регистрации', errors })
     }
 
-    const { email, password } = req.body
+    const { email, name, password } = req.body
 
     const candidate = await User.findOne({ email })
 
@@ -52,9 +52,9 @@ module.exports.register = async function (req, res) {
 
     const hashPassword = bcrypt.hashSync(password, 6)
 
-    const user = await new User({ email, password: hashPassword }).save()
+    await new User({ email, name, password: hashPassword, photo: req.file.path }).save()
 
-    res.status(201).json({ message: `Пользователь ${user.email} создан` })
+    res.status(201).json({ message: `Пользователь создан` })
   } catch (error) {
     errorHandler(error)
   }
