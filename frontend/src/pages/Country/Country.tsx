@@ -5,11 +5,13 @@ import Video from '../../components/Video/Video'
 import useActions from '../../hooks/useActions'
 import useTypedSelector from '../../hooks/useTypedSelector'
 import DateComponent from '../../components/Date/Date'
+import Weather from '../../components/Weather/Weather'
 
 const CountryPage = (
   <div className="country-page">
     <Description />
     <DateComponent />
+    <Weather />
     <Video />
   </div>
 )
