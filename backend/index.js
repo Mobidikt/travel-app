@@ -11,6 +11,7 @@ connectionDB()
 const countriesRouter = require('./routes/countries')
 const attractionsRouter = require('./routes/attractions')
 const authRoutes = require('./routes/auth')
+const gradeRoutes = require('./routes/grades')
 
 app.use('/uploads', express.static('uploads'))
 
@@ -38,6 +39,7 @@ app.get('/', function (req, res) {
 app.use(countriesRouter)
 app.use(attractionsRouter)
 app.use('/auth', authRoutes)
+app.use(gradeRoutes)
 
 app.listen(PORT, () => {
   console.log(`we're online on ${PORT} port!`)

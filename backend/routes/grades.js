@@ -4,6 +4,7 @@ const Grade = require('../models/Grade')
 const router = express.Router()
 
 router.get('/grade/:countryId', async (req, res, next) => {
+  console.log('trying')
   try {
     const data = await Grade.find({ idCountry: req.params['countryId'] }).populate().exec()
     return res.send(data || 'not working')
@@ -17,7 +18,7 @@ router.post('/grade/:countryId/:value', async (req, res) => {
   try {
     const grade = new Grade({
       idCountry: req.params['countryId'],
-      value: req.params['countryId'] || 5,
+      value: req.params['value'] || 5,
     })
     await grade.save(function (err) {
       if (err) return console.log(err)

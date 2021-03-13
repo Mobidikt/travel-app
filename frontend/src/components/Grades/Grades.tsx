@@ -3,13 +3,17 @@ import { StarOutlined, StarFilled } from '@ant-design/icons'
 import useTypedSelector from '../../hooks/useTypedSelector'
 
 const Grades: React.FC = () => {
+  const { currentCountry } = useTypedSelector((state) => state.countriesReducer)
   const [value, setValue] = useState<number>(5)
   useEffect(() => {
-    fetch('http://localhost:8000/country/52457d8718f83293205aaa95/value')
+    const HOST = 'http://localhost:8000'
+    const id: string = currentCountry?.id || ''
+    const URL = `${HOST}/grade/${id}`
+    fetch(URL)
       .then((response) => response.json())
       .then((response) => setValue(response))
       .catch((error) => setValue(error))
-  }, [])
+  }, [currentCountry?.id])
   const grade = (): number[] => {
     const res: number[] = []
     let val: number = value
@@ -23,9 +27,9 @@ const Grades: React.FC = () => {
     }
     return res
   }
-  const handleGrades = (countryId: string, num: number): Record<string, unknown> => {
+  const handleGrades = (num: number): Record<string, unknown> => {
     const gradeUser = {
-      idCountry: countryId,
+      id: currentCountry?.id,
       value: num,
     }
     return gradeUser
@@ -35,9 +39,9 @@ const Grades: React.FC = () => {
     <div className="grades">
       {grades.map((el, index) =>
         el === 1 ? (
-          <StarFilled onClick={() => handleGrades('1234', index + 1)} />
+          <StarFilled onClick={() => handleGrades(index + 1)} />
         ) : (
-          <StarOutlined onClick={() => handleGrades('1234', index + 1)} />
+          <StarOutlined onClick={() => handleGrades(index + 1)} />
         ),
       )}
     </div>

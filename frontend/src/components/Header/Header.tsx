@@ -29,7 +29,7 @@ const Header: React.FC = () => {
         <div className="header__menu">
           <LanguageSelect />
           {mainLocation ? <SearchField /> : null}
-          {mainLocation ? <Grades /> : null}
+          {mainLocation ? null : <Grades />}
           {isLogin ? (
             <button type="button">Выйти</button>
           ) : (
