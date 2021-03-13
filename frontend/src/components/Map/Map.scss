@@ -1,0 +1,27 @@
+.map{
+    &__wrapper{
+        position:relative;
+        overflow:hidden;
+        width: 85%;
+        margin: 0 auto;
+    }
+    &__yandex{
+        color:#eee;
+        font-size:12px;
+        position:absolute;
+        top:0px;
+    }
+    &__linck{
+        color:#eee;
+        font-size:12px;
+        position:absolute;
+        top:14px;
+    }
+    &__iframe{
+        height: 40vh;
+        min-height: 500px;
+        width: 100%;
+        border: none;
+        position:relative;
+    }
+}
