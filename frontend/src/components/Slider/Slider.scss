@@ -1,7 +1,77 @@
 .contentStyle  {
     height: 160px;
-  color: #fff;
   line-height: 160px;
   text-align: center;
-  background: #364d79;
 }
+.slider {
+    color: #F2F2F2;
+    margin: 40px 0;
+    &__title {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 48px;
+        line-height: 65px;
+        text-align: center;
+    }
+}
+.slider__card{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ACB3B8 0%, #273748 100%);
+}
+// .ant-carousel .slick-prev,
+// .ant-carousel .slick-next {
+//   color: unset;
+//   font-size: unset;
+//   :before{
+//       content: '';
+//   }
+// }
+
+// .ant-carousel .slick-prev:hover,
+// .ant-carousel .slick-next:hover,
+// .ant-carousel .slick-prev:focus,
+// .ant-carousel .slick-next:focus {
+//   color: unset;
+//   :before{
+//     content: '';
+// }
+// }
+.ant-carousel {
+    .slick-next {
+        border-radius: 50%;
+        border: 1px solid black;
+        box-sizing: border-box;
+        height: 30px;
+        width: 30px;
+        right: -40px;
+        top: 40%;
+        color: white;
+        background-color:  #6D779B;
+      &::before {
+        content: '';
+      }
+      &:hover{
+        background-color: white;
+        border-color: blue;
+      }
+    }
+    .slick-prev {
+        border-radius: 50%;
+        border: 1px solid black;
+        box-sizing: border-box;
+        left: -40px;
+        top: 40%;
+        height: 30px;
+        width: 30px;
+        color: white;
+        background-color:  #6D779B;
+      &::before {
+        content: '';
+      }
+      &:hover{
+        background-color: white;
+        border-color: blue;
+      }
+    }
+  }
