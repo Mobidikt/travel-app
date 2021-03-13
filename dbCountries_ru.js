@@ -13,6 +13,7 @@ const countries = [
     video: 'https://www.youtube.com/embed/tQIgwox2nmA',
     timeZone: 'Europe/Zurich',
     zip: '3011',
+    map: 'https://yandex.ru/map-widget/v1/-/CCUQnRgfgA',
   },
   {
     id: 24654846,
@@ -28,6 +29,7 @@ const countries = [
     video: 'https://www.youtube.com/embed/27r5PAyeTFg',
     timeZone: 'America/Santo_Domingo',
     zip: '10210',
+    map: 'https://yandex.ru/map-widget/v1/-/CCUQnRc9GC',
   },
   {
     id: 242425566,
@@ -43,6 +45,7 @@ const countries = [
     video: 'https://www.youtube.com/embed/SmVAoOGSvPQ',
     timeZone: 'America/Caracas',
     zip: '7940068',
+    map: 'https://yandex.ru/map-widget/v1/-/CCUQnRcRTB',
   },
   {
     id: 242425566,
@@ -58,6 +61,7 @@ const countries = [
     video: 'https://www.youtube.com/embed/gwgIiYI43qs',
     timeZone: 'Europe/Tirane',
     zip: '1010',
+    map: 'https://yandex.ru/map-widget/v1/-/CCUQnRWFxC',
   },
   {
     id: 24576568,
@@ -72,6 +76,7 @@ const countries = [
     video: 'https://www.youtube.com/embed/hbb4PYiSnVs',
     timeZone: 'Europe/Berlin',
     zip: '10117',
+    map: 'https://yandex.ru/map-widget/v1/-/CCUQnRSgpA',
   },
   {
     id: 35876568,
@@ -87,6 +92,7 @@ const countries = [
     video: 'https://www.youtube.com/embed/GSlEfFM7CFo',
     timeZone: 'Europe/Dublin',
     zip: 'D01',
+    map: 'https://yandex.ru/map-widget/v1/-/CCUQnRSESA',
   },
   {
     id: 42076568,
@@ -102,6 +108,7 @@ const countries = [
     video: 'https://www.youtube.com/embed/0xluX6E2tKo',
     timeZone: 'Asia/Tbilisi',
     zip: '0100',
+    map: 'https://yandex.ru/map-widget/v1/-/CCUQnRGMCA',
   },
   {
     id: 45076568,
@@ -117,6 +124,7 @@ const countries = [
     video: 'https://www.youtube.com/embed/fibYq834w14',
     timeZone: 'Europe/Tallinn',
     zip: '10148',
+    map: 'https://yandex.ru/map-widget/v1/-/CCUQnYXwpC',
   },
 ];
 
