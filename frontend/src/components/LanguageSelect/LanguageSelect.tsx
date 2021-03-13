@@ -13,10 +13,10 @@ const LanguageSelect: React.FC = () => {
   }
   const { language } = useTypedSelector((state) => state.language)
   return (
-    <Select defaultValue={language} onChange={changeLanguage} style={{ width: 120 }}>
-      <Option value="en">English</Option>
-      <Option value="ru">Russian</Option>
-      <Option value="de">German</Option>
+    <Select defaultValue={language} onChange={changeLanguage} style={{ width: 60 }}>
+      <Option value="en">En</Option>
+      <Option value="ru">Ru</Option>
+      <Option value="de">De</Option>
     </Select>
   )
 }
