@@ -6,6 +6,8 @@ import LanguageSelect from '../LanguageSelect/LanguageSelect'
 import SearchField from '../SearchField/SearchField'
 import useActions from '../../hooks/useActions'
 import AuthCard from '../AuthCard/AuthCard'
+import Grades from '../Grades/Grades'
+
 import './Header.scss'
 import useTypedSelector from '../../hooks/useTypedSelector'
 
@@ -27,6 +29,7 @@ const Header: React.FC = () => {
         <div className="header__menu">
           <LanguageSelect />
           {mainLocation ? <SearchField /> : null}
+          {mainLocation ? <Grades /> : null}
           {isLogin ? (
             <button type="button">Выйти</button>
           ) : (
