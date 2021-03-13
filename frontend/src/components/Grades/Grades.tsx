@@ -9,6 +9,7 @@ const Grades: React.FC = () => {
     const HOST = 'http://localhost:8000'
     const id: string = currentCountry?.id || ''
     const URL = `${HOST}/grade/${id}`
+    const ac = new AbortController()
     fetch(URL)
       .then((response) => response.json())
       .then((response) => setValue(response))
@@ -28,10 +29,25 @@ const Grades: React.FC = () => {
     return res
   }
   const handleGrades = (num: number): Record<string, unknown> => {
+    console.log(num)
     const gradeUser = {
       id: currentCountry?.id,
       value: num,
     }
+    const HOST = 'http://localhost:8000'
+    const id: string = currentCountry?.id || ''
+    const URL = `${HOST}/grade/${id}/${num}`
+    const ac = new AbortController()
+    fetch(URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify(gradeUser),
+    })
+      .then((response) => response.json())
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error))
     return gradeUser
   }
   const grades = grade()
@@ -39,9 +55,15 @@ const Grades: React.FC = () => {
     <div className="grades">
       {grades.map((el, index) =>
         el === 1 ? (
-          <StarFilled onClick={() => handleGrades(index + 1)} />
+          <StarFilled
+            style={{ fontSize: '28px', color: '#f2f2f2' }}
+            onClick={() => handleGrades(index + 1)}
+          />
         ) : (
-          <StarOutlined onClick={() => handleGrades(index + 1)} />
+          <StarOutlined
+            style={{ fontSize: '28px', color: '#f2f2f2' }}
+            onClick={() => handleGrades(index + 1)}
+          />
         ),
       )}
     </div>
