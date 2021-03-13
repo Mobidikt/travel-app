@@ -1,0 +1,16 @@
+.weather {
+  text-align: center;
+  border: 2px #fafafa solid;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  background: white;
+
+  &__title {
+    margin: 0;
+    color: grey;
+  }
+
+  &__property {
+    font-size: 20px;
+  }
+}
