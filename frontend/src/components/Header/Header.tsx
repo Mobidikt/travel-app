@@ -18,9 +18,16 @@ const Header: React.FC = () => {
   const mainLocation = pathname === '/countries'
   const { currentCountry } = useTypedSelector((state) => state.countriesReducer)
   const { setIsVisibleAuthCard } = useActions()
+  let backgroundHeader = {}
+  if (currentCountry) {
+    const Background = currentCountry.picture
+    backgroundHeader = {
+      backgroundImage: `url(${Background})`,
+    }
+  }
 
   return (
-    <div className="header">
+    <div className="header" style={backgroundHeader}>
       <AuthCard />
       <div className="header__wrapper">
         <a href="/countries">
