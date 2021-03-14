@@ -11,20 +11,15 @@ function Map() {
   const zoomMap = () => {
     setFullScreen(!fullScreen)
   }
-  return (
+  return currentCountry ? (
     <section className="map">
       <div className={`map__wrapper ${fullScreen ? 'map__full-screen' : ''}`}>
-        <iframe
-          className="map__iframe"
-          title="map"
-          src="https://yandex.ru/map-widget/v1/-/CCUQnYXwpC"
-          allowFullScreen
-        />
+        <iframe className="map__iframe" title="map" src={currentCountry.map} allowFullScreen />
         <button className="map__btn" type="button" onClick={zoomMap}>
           {fullScreen ? <FullscreenExitOutlined /> : <FullscreenOutlined />}
         </button>
       </div>
     </section>
-  )
+  ) : null
 }
 export default Map
