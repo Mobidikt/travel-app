@@ -27,7 +27,7 @@ const Header: React.FC = () => {
   }
 
   return (
-    <div className="header" style={backgroundHeader}>
+    <header className="header" style={backgroundHeader}>
       <AuthCard />
       <div className="header__wrapper">
         <a href="/countries">
@@ -54,7 +54,7 @@ const Header: React.FC = () => {
       <h1 className="header__title">
         {mainLocation ? 'Travel app' : `Travel to the ${currentCountry?.country || ''}`}
       </h1>
-    </div>
+    </header>
   )
 }
 
