@@ -118,7 +118,7 @@ const CarouselArrows = () => {
           >
             {attraction.map((item) => {
               return (
-                <div className="card-slider">
+                <div className="card-slider" key={item.id}>
                   <div className="card-slider__wrapper">
                     <img className="card-slider__img" src={item.picture} alt={item.name} />
                     <div className="card-slider__info">
