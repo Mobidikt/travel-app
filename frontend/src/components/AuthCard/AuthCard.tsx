@@ -1,19 +1,24 @@
 import React, { useState } from 'react'
 import { Card, Button } from 'antd'
+import { useIntl } from 'react-intl'
 import { CloseOutlined } from '@ant-design/icons'
 import Login from '../Login/Login'
 import Registration from '../Registration/Registration'
 import useTypedSelector from '../../hooks/useTypedSelector'
 import useActions from '../../hooks/useActions'
+
 import './AuthCard.scss'
+import config from '../../config'
 
 const AuthCard: React.FC = () => {
+  const intl = useIntl()
+
   const [buttons, setButtons] = useState([
     { title: 'Авторизация', isActive: true },
     { title: 'Регистрация', isActive: false },
   ])
 
-  const { isVisibleAuthCard } = useTypedSelector((state) => state.authReducer)
+  const { isVisibleAuthCard, userPhoto } = useTypedSelector((state) => state.authReducer)
   const { setIsVisibleAuthCard } = useActions()
 
   const activeClickHandler = (activeTitle: string) => {

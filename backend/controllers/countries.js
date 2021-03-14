@@ -3,7 +3,8 @@ const Country = require('../models/Country')
 
 module.exports.getAll = async function (req, res) {
   try {
-    const countries = await Country.find({})
+    const langCode = req.header('Language-Code')
+    const countries = await Country.find({ langCode })
     res.status(200).json(countries)
   } catch (e) {
     errorHandler(e)

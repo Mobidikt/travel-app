@@ -1,7 +1,13 @@
-const LOCALES: { en: string, ru: string, de: string} = {
-    en: 'en-us',
-    ru: 'ru-ru',
-    de: 'de-de',
-  }
-  
-  export default LOCALES
+type LocalesType = {
+  en: 'en-us',
+  ru: 'ru-ru',
+  de: 'de-de',
+}
+
+const LOCALES: LocalesType = {
+  en: 'en-us',
+  ru: 'ru-ru',
+  de: 'de-de',
+}
+
+export default LOCALES
