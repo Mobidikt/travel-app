@@ -4,5 +4,6 @@ export default {
   [LOCALES.de]: {
     // Auth
     Authorization: 'Genehmigung',
+    Exit: 'Ausfahrt',
   },
 }
