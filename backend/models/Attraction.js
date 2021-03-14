@@ -23,6 +23,10 @@ const attractionSchema = new Schema({
     type: String,
     required: true,
   },
+  langCode: {
+    type: String,
+    required: true
+  },
   versionKey: false,
 })
 
