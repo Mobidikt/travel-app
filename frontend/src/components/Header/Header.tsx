@@ -22,15 +22,17 @@ const Header: React.FC = () => {
   const { setIsVisibleAuthCard, logout } = useActions()
 
   let backgroundHeader = {}
-  if (currentCountry) {
+  if (currentCountry && !mainLocation) {
     const Background = currentCountry.picture
     backgroundHeader = {
       backgroundImage: `url(${Background})`,
     }
+  } else {
+    backgroundHeader = {}
   }
 
   return (
-    <div className="header" style={backgroundHeader}>
+    <header className="header" style={backgroundHeader}>
       <AuthCard />
       <div className="header__wrapper">
         <Link to="/countries">
@@ -62,7 +64,7 @@ const Header: React.FC = () => {
       <h1 className="header__title">
         {mainLocation ? 'Travel app' : `Travel to the ${currentCountry?.country || ''}`}
       </h1>
-    </div>
+    </header>
   )
 }
 
