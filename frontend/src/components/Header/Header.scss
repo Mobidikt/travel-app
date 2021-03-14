@@ -4,7 +4,8 @@
     font-weight: normal;
     width: 100%;
     min-height: 30vh;
-    background-image: url("https://avatars.mds.yandex.net/get-zen_doc/1886085/pub_5da0eeb3e6cb9b00ad47e1e6_5da0ef333642b66f6ba1de94/scale_1200");
+    height: 700px;
+    background-image: url("../../assets/header.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -28,10 +29,25 @@
         justify-content: space-around;
         min-width: 250px;
     }
+
+    &__img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+    }
+
+
     &__btn{
         background-color: transparent;
-        color: #F2F2F2;
-        padding: 5px 5px;
+
+        &:hover {
+            background-color: transparent !important;
+            color: black
+        }
+        &:active {
+            background-color: transparent !important;
+            color: black 
+        }
     }
     @media screen and (max-width: 750px){
         .header__title {

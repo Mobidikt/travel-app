@@ -1,7 +1,8 @@
 import React from 'react'
-import { Form, Input, Button } from 'antd'
+import { Form, Input, Button, Alert } from 'antd'
 import useActions from '../../hooks/useActions'
 import './Login.scss'
+import useTypedSelector from '../../hooks/useTypedSelector'
 
 const validateMessages = {
   required: 'Обязательное поле',
@@ -17,9 +18,11 @@ interface LoginFormData {
 
 const Login: React.FC = () => {
   const { fetchLogin } = useActions()
+  const { errorMessage, isLoginError } = useTypedSelector((state) => state.authReducer)
 
   const onFinish = (values: LoginFormData) => {
     const { email, password } = values
+
     fetchLogin(email, password)
   }
 
@@ -45,6 +48,7 @@ const Login: React.FC = () => {
           </Button>
         </Form.Item>
       </Form>
+      {isLoginError ? <Alert message={errorMessage} type="error" /> : null}
     </div>
   )
 }

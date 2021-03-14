@@ -7,6 +7,10 @@
     border-radius: 10px;
     border: 2px solid #F2F2F2;
     background: transparent;
+
+    &--file {
+      border-radius: 5px;
+    }
   }
 
   &__btn {
