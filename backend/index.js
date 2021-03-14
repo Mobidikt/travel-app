@@ -12,6 +12,7 @@ const countriesRouter = require('./routes/countries')
 const attractionsRouter = require('./routes/attractions')
 const authRoutes = require('./routes/auth')
 const gradeRoutes = require('./routes/grades')
+const attrRoutes = require('./routes/attractions')
 
 app.use('/uploads', express.static('uploads'))
 
@@ -40,6 +41,7 @@ app.use(countriesRouter)
 app.use(attractionsRouter)
 app.use('/auth', authRoutes)
 app.use(gradeRoutes)
+app.use(attrRoutes)
 
 app.listen(PORT, () => {
   console.log(`we're online on ${PORT} port!`)

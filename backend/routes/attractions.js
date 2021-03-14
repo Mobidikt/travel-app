@@ -1,16 +1,10 @@
 const express = require('express')
-const Attraction = require('../models/Attraction')
+const controller = require('../controllers/attractions')
 
 const router = express.Router()
 
-router.get('/attraction/:countryId', async (req, res, next) => {
-  try {
-    const data = await Attraction.find({ idCountry: req.params['countryId'] }).populate().exec()
-    return res.send(data || 'not working')
-  } catch (err) {
-    console.log(err)
-    return res.sendStatus(500)
-  }
-})
+router.get('/attraction/:countryId', controller.getById)
+router.post('/attraction', controller.create)
+router.get('/attraction', controller.getAll)
 
 module.exports = router
