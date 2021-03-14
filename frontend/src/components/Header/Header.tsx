@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from 'antd'
+import { Button, Avatar, Image } from 'antd'
 import { Link, useLocation } from 'react-router-dom'
 import { LoginOutlined, LogoutOutlined } from '@ant-design/icons'
 import logo from '../../assets/logo.png'
@@ -17,7 +17,7 @@ const Header: React.FC = () => {
   const mainLocation = pathname === '/countries'
   const { currentCountry } = useTypedSelector((state) => state.countriesReducer)
 
-  const { token } = useTypedSelector((state) => state.authReducer)
+  const { token, userPhoto } = useTypedSelector((state) => state.authReducer)
   const { setIsVisibleAuthCard, logout } = useActions()
 
   let backgroundHeader = {}
@@ -38,14 +38,21 @@ const Header: React.FC = () => {
           <img src={logo} className="header__logo" alt="logo" />
         </Link>
         <div className="header__menu">
-          <LanguageSelect />
-          {mainLocation ? <SearchField /> : null}
-
-          {/* {mainLocation ? <Grades /> : null} */}
+          <div className="menu-bar">
+            <LanguageSelect />
+            {mainLocation ? <SearchField /> : null}
+            {/* {mainLocation ? <Grades /> : null} */}
+          </div>
           {token ? (
-            <Button size="large" shape="round" onClick={logout} icon={<LogoutOutlined />}>
-              Выйти
-            </Button>
+            <div className="user-info">
+              <Avatar
+                size={40}
+                src={<Image src={`${config.API_URL || ''}/${userPhoto || ''}`} />}
+              />
+              <Button size="large" shape="round" onClick={logout} icon={<LogoutOutlined />}>
+                Выйти
+              </Button>
+            </div>
           ) : (
             <Button
               size="large"
