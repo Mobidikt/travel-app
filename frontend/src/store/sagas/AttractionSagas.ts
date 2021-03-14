@@ -1,5 +1,5 @@
 import { put, takeEvery, call } from 'redux-saga/effects'
-import { AttractionActionTypes, FetchAttractionAction} from '../types/attraction'
+import { AttractionActionTypes, FetchAttractionAction } from '../types/attraction'
 import actions from '../actions/attractions'
 
 import AttractionsApi from '../../services/AttractionsApi'

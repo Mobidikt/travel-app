@@ -18,6 +18,7 @@ export enum AttractionActionTypes {
   REQUESTED_ATTRACTIONS = 'ATTRACTIONS/REQUESTED_ATTRACTIONS',
   REQUESTED_ATTRACTIONS_SUCCEEDED = 'ATTRACTIONS/REQUESTED_ATTRACTIONS_SUCCEEDED',
   REQUESTED_ATTRACTIONS_FAILED = 'ATTRACTIONS/REQUESTED_ATTRACTIONS_FAILED',
+  SET_ATTRACTIONS = 'ATTRACTIONS/SET_CURRENT_ATTRACTIONS',
   FILTER_ATTRACTIONS = 'ATTRACTIONS/FILTER_ATTRACTIONS',
 }
 
@@ -32,6 +33,11 @@ export interface RequestedAttractionSucceededAction {
 
 export interface RequestedAttractionFailedAction {
   type: AttractionActionTypes.REQUESTED_ATTRACTIONS_FAILED;
+  payload: string;
+}
+
+export interface SetAttractions {
+  type: AttractionActionTypes.SET_ATTRACTIONS;
   payload: string;
 }
 
@@ -50,3 +56,4 @@ export type AttractionAction =
   | RequestedAttractionFailedAction
   | FetchAttractionAction
   | FilterAttractionAction
+  | SetAttractions

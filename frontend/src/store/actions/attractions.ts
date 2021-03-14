@@ -5,6 +5,11 @@ const filterAttractions = (searchVal: string): AttractionAction => ({
   payload: searchVal,
 })
 
+const setAttractions = (idCountry: string): AttractionAction => ({
+  type: AttractionActionTypes.SET_ATTRACTIONS,
+  payload: idCountry,
+})
+
 const fetchAttractions = (): AttractionAction => ({
   type: AttractionActionTypes.FETCH_ATTRACTIONS,
 })
@@ -24,9 +29,9 @@ const requestedAttractionsFailed = (err: string): AttractionAction => ({
 })
 
 export default {
-    filterAttractions,
-    fetchAttractions,
-    requestedAttractions,
-    requestedAttractionsSucceeded,
-    requestedAttractionsFailed,
+  filterAttractions,
+  fetchAttractions,
+  requestedAttractions,
+  requestedAttractionsSucceeded,
+  requestedAttractionsFailed,
 }
