@@ -7,8 +7,12 @@ import LanguageSelect from '../LanguageSelect/LanguageSelect'
 import SearchField from '../SearchField/SearchField'
 import useActions from '../../hooks/useActions'
 import AuthCard from '../AuthCard/AuthCard'
+<<<<<<< Updated upstream
 import Grades from '../Grades/Grades'
 import config from '../../config'
+=======
+import Currency from '../Currency/Currency'
+>>>>>>> Stashed changes
 
 import './Header.scss'
 import useTypedSelector from '../../hooks/useTypedSelector'
@@ -41,12 +45,18 @@ const Header: React.FC = () => {
         <div className="header__menu">
           <LanguageSelect />
           {mainLocation ? <SearchField /> : null}
+<<<<<<< Updated upstream
 
           {/* {mainLocation ? <Grades /> : null} */}
           {token ? (
             <Button size="large" shape="round" onClick={logout} icon={<LogoutOutlined />}>
               Выйти
             </Button>
+=======
+          {mainLocation ? null : <Currency />}
+          {isLogin ? (
+            <button type="button">Выйти</button>
+>>>>>>> Stashed changes
           ) : (
             <Button
               size="large"

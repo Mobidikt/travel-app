@@ -8,7 +8,6 @@ const Grades: React.FC = () => {
   useEffect(() => {
     const HOST = 'http://localhost:8000'
     const id: string = currentCountry?.id || ''
-    console.log(id)
     const URL = `${HOST}/grade/${id}`
     const ac = new AbortController()
     fetch(URL)
