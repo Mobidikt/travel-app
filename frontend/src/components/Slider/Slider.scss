@@ -1,58 +1,112 @@
-.contentStyle  {
-    height: 160px;
-  line-height: 160px;
-  text-align: center;
-}
 .slider {
     color: #F2F2F2;
     margin: 40px 0;
+    padding-top: 40px;
+    box-sizing: border-box;
+    min-height: 876px;
+    background: linear-gradient(135deg, #ACB3B8 0%, #273748 100%);
     &__title {
+        margin: 0 0 70px;
         font-style: normal;
         font-weight: normal;
         font-size: 48px;
         line-height: 65px;
         text-align: center;
+        color: #F2F2F2;
     }
 }
-.slider__card{
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #ACB3B8 0%, #273748 100%);
+.card-slider{
+    line-height: 160px;
+    text-align: center;
+    width: 101%;
+    padding: 5px;
+    min-height: 690px;
+    background: transparent;
+    color: #F2F2F2;
+    display: flex;
+    flex-direction: row;
+    &__wrapper {
+      width: 100%;
+      display: flex;
+    }
+    &__title{
+      font-family: 'Noto Sans';
+      font-style: normal;
+      font-weight: normal;
+      font-size: 36px;
+      line-height: 49px;
+      text-align: center;
+      color: #F2F2F2;
+      margin-bottom: 70px;
+    }
+    &__img {
+      margin-right: 40px;
+      width: 60%;
+      height: 537px;
+      object-fit: cover;
+    }
+    &__description {
+      font-family: 'Noto Sans';
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 22px;
+      letter-spacing: 0.02em;
+      color: #F2F2F2;
+    }
+    @media screen and (max-width: 800px){
+      .card-slider__img {
+          width: 50%;
+          height: 450px;
+      }
+  }
+  @media screen and (max-width: 650px){
+    .card-slider{
+      &__wrapper {
+          flex-direction: column;
+      }
+      &__img {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 80px;
+        height: 400px;
+      }
+      &__title{
+        margin-bottom: 40px;
+      }
+      &__description {
+        margin-bottom: 100px;
+      }
+    }
+  }
 }
-// .ant-carousel .slick-prev,
-// .ant-carousel .slick-next {
-//   color: unset;
-//   font-size: unset;
-//   :before{
-//       content: '';
-//   }
-// }
-
-// .ant-carousel .slick-prev:hover,
-// .ant-carousel .slick-next:hover,
-// .ant-carousel .slick-prev:focus,
-// .ant-carousel .slick-next:focus {
-//   color: unset;
-//   :before{
-//     content: '';
-// }
-// }
 .ant-carousel {
     .slick-next {
-        border-radius: 50%;
-        border: 1px solid black;
-        box-sizing: border-box;
-        height: 30px;
-        width: 30px;
-        right: -40px;
-        top: 40%;
-        color: white;
-        background-color:  #6D779B;
+      border-radius: 50%;
+      border: 1px solid black;
+      box-sizing: border-box;
+      height: 30px;
+      width: 30px;
+      right: -40px; 
+      top: 50%;
+      color: white;
+      background-color:  #6D779B;
+      z-index: 99;
       &::before {
         content: '';
       }
       &:hover{
         background-color: white;
+        color: black;
+        border-color: blue;
+      }
+      &:active{
+        background-color: white;
+        border-color: blue;
+      }
+      &:focus{
+        background-color: white;
+        color: black;
         border-color: blue;
       }
     }
@@ -60,18 +114,41 @@
         border-radius: 50%;
         border: 1px solid black;
         box-sizing: border-box;
-        left: -40px;
-        top: 40%;
         height: 30px;
         width: 30px;
+        left: -40px; 
+        top: 50%;
         color: white;
         background-color:  #6D779B;
+        z-index: 99;
       &::before {
         content: '';
       }
       &:hover{
         background-color: white;
+        color: black;
         border-color: blue;
+      }
+      &:active{
+        background-color: white;
+        border-color: blue;
+      }
+      &:focus{
+        background-color: white;
+        color: black;
+        border-color: blue;
+      }
+    }
+  } 
+  @media screen and (max-width: 600px){
+    .ant-carousel {
+      .slick-next {
+        right: 0px; 
+      }
+    }
+    .ant-carousel {
+      .slick-prev {
+        left: 0px; 
       }
     }
   }
