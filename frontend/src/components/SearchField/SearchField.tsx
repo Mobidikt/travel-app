@@ -20,16 +20,14 @@ const SearchField: React.FC = () => {
   }
 
   return (
-    <div className="search">
-      <Search
-        placeholder="Search Country"
-        autoFocus
-        allowClear
-        onSearch={filterCountries}
-        onChange={handleSearchChange}
-        style={{ width: 200 }}
-      />
-    </div>
+    <Search
+      className="search"
+      placeholder="Search Country"
+      autoFocus
+      allowClear
+      onSearch={filterCountries}
+      onChange={handleSearchChange}
+    />
   )
 }
 
