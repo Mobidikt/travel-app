@@ -8,7 +8,7 @@ const DateComponent: React.FC = () => {
   const { currentCountry } = useTypedSelector((state) => state.countriesReducer)
   const [date, setDate] = useState('')
   const getDate = () => {
-    const options: {[key: string]: string} = {
+    const options: { [key: string]: string } = {
       day: 'numeric',
       month: 'long',
       year: 'numeric',
@@ -19,7 +19,7 @@ const DateComponent: React.FC = () => {
       // eslint-disable-next-line
       timeZone: 'America/Santo_Domingo',
     }
-    const currentDate =  new Date().toLocaleString('en-US', options)
+    const currentDate = new Date().toLocaleString('en-US', options)
     setDate(currentDate)
   }
   useInterval(() => getDate(), 1000)

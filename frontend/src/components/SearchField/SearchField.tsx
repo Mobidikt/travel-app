@@ -15,7 +15,7 @@ const SearchField: React.FC = () => {
   }, [searchVal])
 
   // eslint-disable-next-line
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setSearchVal(event.target.value)
   }
 
