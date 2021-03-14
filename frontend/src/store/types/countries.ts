@@ -8,6 +8,9 @@ export type CountryType = {
   picture: string,
   video: string,
   id: string,
+  map: string,
+  timeZone: string,
+  zip: string,
 }
 
 export interface CountriesState {

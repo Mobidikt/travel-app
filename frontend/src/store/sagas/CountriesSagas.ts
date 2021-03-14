@@ -1,10 +1,10 @@
 import { put, takeEvery, call } from 'redux-saga/effects'
-import { CountriesActionTypes, FetchCountriesAction } from '../types/countries'
+import { CountriesActionTypes } from '../types/countries'
 import actions from '../actions/countries'
 
 import CountryApi from '../../services/CountryApi'
 
-function* fetchCountries(action: FetchCountriesAction) {
+function* fetchCountries() {
   try {
     yield put(actions.requestedCountries())
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment

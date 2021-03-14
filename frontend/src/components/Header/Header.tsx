@@ -1,54 +1,64 @@
 import React from 'react'
 import { Button } from 'antd'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
+import { LoginOutlined, LogoutOutlined } from '@ant-design/icons'
 import logo from '../../assets/logo.png'
 import LanguageSelect from '../LanguageSelect/LanguageSelect'
 import SearchField from '../SearchField/SearchField'
 import useActions from '../../hooks/useActions'
 import AuthCard from '../AuthCard/AuthCard'
 import Grades from '../Grades/Grades'
+import config from '../../config'
 
 import './Header.scss'
 import useTypedSelector from '../../hooks/useTypedSelector'
-
-const isLogin = false // вошел ли пользователь
 
 const Header: React.FC = () => {
   const { pathname } = useLocation()
   const mainLocation = pathname === '/countries'
   const { currentCountry } = useTypedSelector((state) => state.countriesReducer)
-  const { setIsVisibleAuthCard } = useActions()
+
+  const { token } = useTypedSelector((state) => state.authReducer)
+  const { setIsVisibleAuthCard, logout } = useActions()
+
   let backgroundHeader = {}
-  if (currentCountry) {
+  if (currentCountry && !mainLocation) {
     const Background = currentCountry.picture
     backgroundHeader = {
       backgroundImage: `url(${Background})`,
     }
+  } else {
+    backgroundHeader = {}
   }
 
   return (
     <header className="header" style={backgroundHeader}>
       <AuthCard />
       <div className="header__wrapper">
-        <a href="/countries">
+        <Link to="/countries">
           <img src={logo} className="header__logo" alt="logo" />
-        </a>
+        </Link>
         <div className="header__menu">
           <LanguageSelect />
           {mainLocation ? <SearchField /> : null}
-          {mainLocation ? null : <Grades />}
-          {isLogin ? (
-            <button type="button">Выйти</button>
+
+          {/* {mainLocation ? <Grades /> : null} */}
+          {token ? (
+            <Button size="large" shape="round" onClick={logout} icon={<LogoutOutlined />}>
+              Выйти
+            </Button>
           ) : (
             <Button
-              className="header__btn"
-              shape="round"
               size="large"
+              shape="round"
               onClick={setIsVisibleAuthCard}
+              icon={<LoginOutlined />}
             >
-              Авторизоваться
+              Войти
             </Button>
           )}
+
+          {mainLocation ? null : <Grades />}
         </div>
       </div>
       <h1 className="header__title">

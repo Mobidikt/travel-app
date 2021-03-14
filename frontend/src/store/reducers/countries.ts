@@ -1,8 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { CountriesAction, CountriesActionTypes, CountriesState } from '../types/countries'
 
+const cointriesFromStorage: string | null = localStorage.getItem('countries')
+
+const initCountries = cointriesFromStorage ? JSON.parse(cointriesFromStorage) : []
+
 const initialState: CountriesState = {
-  countries: [],
+  countries: initCountries,
   isLoading: false,
   error: null,
   currentCountry: null,
@@ -18,6 +22,7 @@ const reducer = (state = initialState, action: CountriesAction): CountriesState 
     }
 
     case CountriesActionTypes.REQUESTED_COUNTRIES_SUCCEEDED: {
+      localStorage.setItem('countries', JSON.stringify(action.payload))
       return {
         ...state,
         isLoading: false,
@@ -49,7 +54,7 @@ const reducer = (state = initialState, action: CountriesAction): CountriesState 
       })
       return {
         ...state,
-        countries: newCountries.length ? newCountries : initialState.countries,
+        countries: newCountries.length ? newCountries : state.countries,
       }
     }
     default:

@@ -5,6 +5,12 @@ import {
   FetchLoginAction,
   RequestedLoginSucceededAction,
   RequestedLoginFailedAction,
+  LogoutAction,
+  FetchRegistrationAction,
+  RequestedRegistrationAction,
+  RequestedRegistrationSucceededAction,
+  RequestedRegistrationFailedAction,
+  ClearAction,
 } from '../types/auth'
 
 const setIsVisibleAuthCard = (): SetIsVisibleAuthCardAction => ({
@@ -20,14 +26,45 @@ const requestedLogin = (): RequestedLoginAction => ({
   type: AuthActionTypes.REQUESTED_LOGIN,
 })
 
-const requestedLoginSucceeded = (token: string): RequestedLoginSucceededAction => ({
+const requestedLoginSucceeded = (token: string, photo: string): RequestedLoginSucceededAction => ({
   type: AuthActionTypes.REQUESTED_LOGIN_SUCCEEDED,
-  payload: token,
+  payload: { token, photo },
 })
 
 const requestedLoginFailed = (errorMessage: string): RequestedLoginFailedAction => ({
   type: AuthActionTypes.REQUESTED_LOGIN_FAILED,
   payload: errorMessage,
+})
+
+const clearErros = (): ClearAction => ({
+  type: AuthActionTypes.CLEAR_ERRORS,
+})
+
+const fetchRegistation = (
+  name: string,
+  email: string,
+  password: string,
+  photo: File | null,
+): FetchRegistrationAction => ({
+  type: AuthActionTypes.FETCH_REGISTRATION,
+  payload: { name, email, password, photo },
+})
+
+const requestedRegistration = (): RequestedRegistrationAction => ({
+  type: AuthActionTypes.REQUESTED_REGISTRATION,
+})
+
+const requestedRegistrationSucceeded = (): RequestedRegistrationSucceededAction => ({
+  type: AuthActionTypes.REQUESTED_REGISTRATION_SUCCEEDED,
+})
+
+const requestedRegistrationFailed = (errorMessage: string): RequestedRegistrationFailedAction => ({
+  type: AuthActionTypes.REQUESTED_REGISTRATION_FAILED,
+  payload: errorMessage,
+})
+
+const logout = (): LogoutAction => ({
+  type: AuthActionTypes.LOGOUT,
 })
 
 export default {
@@ -36,4 +73,10 @@ export default {
   fetchLogin,
   requestedLoginSucceeded,
   requestedLoginFailed,
+  logout,
+  fetchRegistation,
+  requestedRegistration,
+  requestedRegistrationSucceeded,
+  requestedRegistrationFailed,
+  clearErros,
 }

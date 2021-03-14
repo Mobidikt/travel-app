@@ -24,11 +24,11 @@ module.exports.login = async function (req, res) {
     const validPassword = bcrypt.compareSync(password, user.password)
 
     if (!validPassword) {
-      return res.status(400).json({ message: 'Неверные данные' })
+      return res.status(400).json({ message: 'Вы ввели неверный пароль' })
     }
 
     const token = generateAuthToken(user._id)
-    res.status(200).json({ token: `Bearer ${token}`, email: user.email })
+    res.status(200).json({ token: `Bearer ${token}`, email: user.email, photo: user.photo })
   } catch (error) {
     errorHandler(error)
   }
@@ -42,7 +42,7 @@ module.exports.register = async function (req, res) {
       return res.status(400).json({ message: 'Ошибка при регистрации', errors })
     }
 
-    const { email, name, password } = req.body
+    const { name, email, password } = req.body
 
     const candidate = await User.findOne({ email })
 
@@ -52,7 +52,9 @@ module.exports.register = async function (req, res) {
 
     const hashPassword = bcrypt.hashSync(password, 6)
 
-    await new User({ email, name, password: hashPassword, photo: req.file.path }).save()
+    const photo = req.file ? req.file.path : null
+
+    await new User({ email, name, password: hashPassword, photo }).save()
 
     res.status(201).json({ message: `Пользователь создан` })
   } catch (error) {

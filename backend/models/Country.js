@@ -31,6 +31,18 @@ const countrySchema = new Schema({
     type: String,
     required: true,
   },
+  map: {
+    type: String,
+    required: true,
+  },
+  timeZone: {
+    type: String,
+    required: true,
+  },
+  zip: {
+    type: String,
+    required: true,
+  },
 })
 
 countrySchema.virtual('id').get(function () {

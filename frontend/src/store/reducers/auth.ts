@@ -1,13 +1,14 @@
 import { AuthState, AuthActionTypes, AuthAction } from '../types/auth'
 
 const initialState: AuthState = {
-  userMail: null,
-  token: null,
+  userPhoto: null,
+  token: localStorage.getItem('token') || null,
   isLoading: false,
   isLoginError: false,
   isRegistrationError: false,
   errorMessage: null,
   isVisibleAuthCard: false,
+  isRegistrated: false,
 }
 
 const reducer = (state = initialState, action: AuthAction): AuthState => {
@@ -20,10 +21,11 @@ const reducer = (state = initialState, action: AuthAction): AuthState => {
     }
 
     case AuthActionTypes.REQUESTED_LOGIN_SUCCEEDED: {
-      localStorage.setItem('token', action.payload)
+      localStorage.setItem('token', action.payload.token)
       return {
         ...state,
-        token: action.payload,
+        token: action.payload.token,
+        userPhoto: action.payload.photo,
         isLoading: false,
       }
     }
@@ -41,6 +43,48 @@ const reducer = (state = initialState, action: AuthAction): AuthState => {
       return {
         ...state,
         isVisibleAuthCard: !state.isVisibleAuthCard,
+      }
+    }
+
+    case AuthActionTypes.REQUESTED_REGISTRATION: {
+      return {
+        ...state,
+        isLoading: true,
+        isRegistrated: false,
+      }
+    }
+
+    case AuthActionTypes.REQUESTED_REGISTRATION_SUCCEEDED: {
+      return {
+        ...state,
+        isLoading: false,
+        isRegistrated: true,
+      }
+    }
+
+    case AuthActionTypes.REQUESTED_REGISTRATION_FAILED: {
+      return {
+        ...state,
+        errorMessage: action.payload,
+        isRegistrationError: true,
+      }
+    }
+
+    case AuthActionTypes.LOGOUT: {
+      localStorage.removeItem('token')
+      return {
+        ...state,
+        userPhoto: null,
+        token: null,
+      }
+    }
+
+    case AuthActionTypes.CLEAR_ERRORS: {
+      return {
+        ...state,
+        errorMessage: null,
+        isLoginError: false,
+        isRegistrated: false,
       }
     }
 
