@@ -18,5 +18,8 @@
   "homepage": "https://github.com/Mobidikt/travel-app#readme",
   "devDependencies": {
     "concurrently": "^6.0.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5"
   }
 }

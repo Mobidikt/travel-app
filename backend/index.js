@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const morgan = require('morgan')
+const cors = require('cors')
 const flash = require('express-flash')
 const { PORT } = require('./config')
 
@@ -20,6 +21,7 @@ app.use(morgan('dev'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(flash())
+app.use(cors())
 
 app.use(async (req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*')
