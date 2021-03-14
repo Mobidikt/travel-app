@@ -79,6 +79,15 @@ const reducer = (state = initialState, action: AuthAction): AuthState => {
       }
     }
 
+    case AuthActionTypes.CLEAR_ERRORS: {
+      return {
+        ...state,
+        errorMessage: null,
+        isLoginError: false,
+        isRegistrated: false,
+      }
+    }
+
     default:
       return state
   }

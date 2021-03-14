@@ -2,9 +2,8 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const attractionSchema = new Schema({
-  _id: mongoose.Schema.Types.ObjectId,
   idCountry: {
-    type: Number,
+    type: String,
     required: true,
   },
   name: {

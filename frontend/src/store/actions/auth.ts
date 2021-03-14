@@ -10,6 +10,7 @@ import {
   RequestedRegistrationAction,
   RequestedRegistrationSucceededAction,
   RequestedRegistrationFailedAction,
+  ClearAction,
 } from '../types/auth'
 
 const setIsVisibleAuthCard = (): SetIsVisibleAuthCardAction => ({
@@ -33,6 +34,10 @@ const requestedLoginSucceeded = (token: string, photo: string): RequestedLoginSu
 const requestedLoginFailed = (errorMessage: string): RequestedLoginFailedAction => ({
   type: AuthActionTypes.REQUESTED_LOGIN_FAILED,
   payload: errorMessage,
+})
+
+const clearErros = (): ClearAction => ({
+  type: AuthActionTypes.CLEAR_ERRORS,
 })
 
 const fetchRegistation = (
@@ -73,4 +78,5 @@ export default {
   requestedRegistration,
   requestedRegistrationSucceeded,
   requestedRegistrationFailed,
+  clearErros,
 }

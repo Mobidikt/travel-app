@@ -13,6 +13,7 @@ function* login(action: FetchLoginAction) {
     const { data } = yield call(() => AuthApi.login(email, password))
     yield put(authActions.requestedLoginSucceeded(data.token, data.photo))
     yield put(authActions.setIsVisibleAuthCard())
+    yield put(authActions.clearErros())
   } catch (error) {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const { data } = error.response
@@ -28,6 +29,7 @@ function* register(action: FetchRegistrationAction) {
     yield call(() => AuthApi.register(name, email, password, photo))
     yield put(authActions.requestedRegistrationSucceeded())
     yield put(authActions.setIsVisibleAuthCard())
+    yield put(authActions.clearErros())
   } catch (error) {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const { data } = error.response

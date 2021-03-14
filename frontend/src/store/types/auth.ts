@@ -20,6 +20,7 @@ export enum AuthActionTypes {
   REQUESTED_REGISTRATION_FAILED = 'AUTH/REQUESTED_REGISTRATION_FAILED',
   SET_IS_VISIBLE_AUTH_CARD = 'AUTH/SET_IS_VISIBLE_AUTH_CARD',
   LOGOUT = 'AUTH/LOGOUT',
+  CLEAR_ERRORS = 'AUTH/CLEAR_ERRORS',
 }
 
 export interface RequestedLoginAction {
@@ -66,6 +67,10 @@ export interface LogoutAction {
   type: AuthActionTypes.LOGOUT;
 }
 
+export interface ClearAction {
+  type: AuthActionTypes.CLEAR_ERRORS;
+}
+
 export type AuthAction =
   | RequestedLoginAction
   | RequestedLoginSucceededAction
@@ -77,3 +82,4 @@ export type AuthAction =
   | RequestedRegistrationFailedAction
   | RequestedRegistrationSucceededAction
   | RequestedRegistrationAction
+  | ClearAction

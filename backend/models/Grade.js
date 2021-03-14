@@ -2,7 +2,6 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const gradeSchema = new Schema({
-  _id: mongoose.Schema.Types.ObjectId,
   idCountry: {
     type: String,
     required: true,
@@ -16,6 +15,4 @@ const gradeSchema = new Schema({
   versionKey: false,
 })
 
-const Grade = mongoose.model('Grade', gradeSchema)
-
-module.exports = Grade
+module.exports = mongoose.model('Grade', gradeSchema)

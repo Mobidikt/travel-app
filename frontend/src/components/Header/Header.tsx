@@ -17,11 +17,20 @@ const Header: React.FC = () => {
   const { pathname } = useLocation()
   const mainLocation = pathname === '/countries'
   const { currentCountry } = useTypedSelector((state) => state.countriesReducer)
+
   const { token } = useTypedSelector((state) => state.authReducer)
   const { setIsVisibleAuthCard, logout } = useActions()
 
+  let backgroundHeader = {}
+  if (currentCountry) {
+    const Background = currentCountry.picture
+    backgroundHeader = {
+      backgroundImage: `url(${Background})`,
+    }
+  }
+
   return (
-    <div className="header">
+    <div className="header" style={backgroundHeader}>
       <AuthCard />
       <div className="header__wrapper">
         <Link to="/countries">
@@ -30,6 +39,7 @@ const Header: React.FC = () => {
         <div className="header__menu">
           <LanguageSelect />
           {mainLocation ? <SearchField /> : null}
+
           {/* {mainLocation ? <Grades /> : null} */}
           {token ? (
             <Button size="large" shape="round" onClick={logout} icon={<LogoutOutlined />}>
@@ -45,6 +55,8 @@ const Header: React.FC = () => {
               Войти
             </Button>
           )}
+
+          {mainLocation ? null : <Grades />}
         </div>
       </div>
       <h1 className="header__title">
