@@ -3,8 +3,7 @@ import React, { useState } from 'react'
 import useTypedSelector from '../../hooks/useTypedSelector'
 import './Map.scss'
 
-// eslint-disable-next-line
-function Map() {
+const Map: React.FC = () => {
   const [fullScreen, setFullScreen] = useState(false)
   const { currentCountry } = useTypedSelector((state) => state.countriesReducer)
 
