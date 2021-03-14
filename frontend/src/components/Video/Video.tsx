@@ -2,8 +2,7 @@ import React from 'react'
 import useTypedSelector from '../../hooks/useTypedSelector'
 import './Video.scss'
 
-// eslint-disable-next-line
-function Video() {
+const Video: React.FC = () => {
   const { currentCountry } = useTypedSelector((state) => state.countriesReducer)
   return currentCountry ? (
     <section className="video">
