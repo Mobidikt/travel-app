@@ -31,7 +31,6 @@ module.exports.getById = async function (req, res) {
     const attractions = await Attraction.find({ idCountry: req.params.countryId })
     const langCode = req.header('Language-Code')
     const attractionsWithFilter = attractions.map((attraction, idx) => {
-      console.log(lang.attractions[`id${attraction.idCountry}`])
       return {
         name: lang.attractions[`id${attraction.idCountry}`][langCode][idx].name,
         picture: attraction.picture,

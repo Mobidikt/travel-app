@@ -11,6 +11,7 @@ export type CountryType = {
   map: string,
   timeZone: string,
   zip: string,
+  currencyName: string,
 }
 
 export interface CountriesState {
