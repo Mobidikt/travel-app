@@ -1,9 +1,11 @@
 import React from 'react'
+import { useIntl } from 'react-intl'
 import useTypedSelector from '../../hooks/useTypedSelector'
 import './Description.scss'
 
 // eslint-disable-next-line
 function Description() {
+  const intl = useIntl()
   const ending = (country: string) => {
     if (country === 'Доминиканская Республика') {
       return 'Доминиканской Республики'
@@ -20,7 +22,7 @@ function Description() {
     <section className="description">
       <p className="description__text">{currentCountry?.description}</p>
       <p className="description__capital">
-        {currentCountry?.capital} столица{' '}
+        {currentCountry?.capital} {intl.formatMessage({ id: 'capital' })}{' '}
         {currentCountry?.country ? nameCountry(currentCountry.country) : null}
       </p>
     </section>
