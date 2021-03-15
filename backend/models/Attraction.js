@@ -1,19 +1,23 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
+const ratingSchema = new Schema({
+  score: {
+    type: Number,
+    default: 0,
+  },
+  votedPeople: [{ type: String, default: [] }],
+})
+
 const attractionSchema = new Schema({
   idCountry: {
-    type: String,
-    required: true,
+    ref: 'Country',
+    type: Schema.Types.ObjectId,
   },
   name: {
     type: String,
     required: true,
     unique: true,
-    index: {
-      unique: true,
-      dropDups: true,
-    },
   },
   picture: {
     type: String,
@@ -25,9 +29,9 @@ const attractionSchema = new Schema({
   },
   langCode: {
     type: String,
-    required: true
+    required: true,
   },
-  versionKey: false,
+  score: { type: ratingSchema },
 })
 
 const Attraction = mongoose.model('Attraction', attractionSchema)
