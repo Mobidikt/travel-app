@@ -55,7 +55,7 @@ const Header: React.FC = () => {
           </div>
           {token ? (
             <div className="user-info">
-              {userPhoto !== 'null' ? (
+              {userPhoto ? (
                 <Avatar
                   size={40}
                   src={<Image src={`${config.API_URL || ''}/${userPhoto || ''}`} />}

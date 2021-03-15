@@ -1,3 +1,4 @@
+import { nodeModuleNameResolver } from 'typescript'
 import { AuthState, AuthActionTypes, AuthAction } from '../types/auth'
 
 const initialState: AuthState = {
@@ -22,9 +23,12 @@ const reducer = (state = initialState, action: AuthAction): AuthState => {
     }
 
     case AuthActionTypes.REQUESTED_LOGIN_SUCCEEDED: {
-      localStorage.setItem('token', action.payload.token)
-      localStorage.setItem('photo', action.payload.photo)
-      localStorage.setItem('email', action.payload.email)
+      const { token, photo, email } = action.payload
+      localStorage.setItem('token', token)
+      if (action.payload.photo) {
+        localStorage.setItem('photo', photo)
+      }
+      localStorage.setItem('email', email)
       return {
         ...state,
         token: action.payload.token,
@@ -76,10 +80,13 @@ const reducer = (state = initialState, action: AuthAction): AuthState => {
 
     case AuthActionTypes.LOGOUT: {
       localStorage.removeItem('token')
+      localStorage.removeItem('email')
+      localStorage.removeItem('photo')
       return {
         ...state,
         userPhoto: null,
         token: null,
+        email: null,
       }
     }
 
