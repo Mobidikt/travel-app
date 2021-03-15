@@ -1,5 +1,6 @@
 import React from 'react'
 import { Form, Input, Button, Alert } from 'antd'
+import { useIntl } from 'react-intl'
 import useActions from '../../hooks/useActions'
 import './Login.scss'
 import useTypedSelector from '../../hooks/useTypedSelector'
@@ -17,6 +18,7 @@ interface LoginFormData {
 }
 
 const Login: React.FC = () => {
+  const intl = useIntl()
   const { fetchLogin } = useActions()
   const { errorMessage, isLoginError } = useTypedSelector((state) => state.authReducer)
 

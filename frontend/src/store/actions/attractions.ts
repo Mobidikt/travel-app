@@ -10,8 +10,9 @@ const setAttractions = (idCountry: string): AttractionAction => ({
   payload: idCountry,
 })
 
-const fetchAttractions = (): AttractionAction => ({
+const fetchAttractions = (countryId: string): AttractionAction => ({
   type: AttractionActionTypes.FETCH_ATTRACTIONS,
+  payload: countryId,
 })
 
 const requestedAttractions = (): AttractionAction => ({

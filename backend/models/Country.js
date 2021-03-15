@@ -5,7 +5,6 @@ const countrySchema = new Schema({
   country: {
     type: String,
     required: true,
-    unique: true,
   },
   population: {
     type: Number,
@@ -40,6 +39,10 @@ const countrySchema = new Schema({
     required: true,
   },
   zip: {
+    type: String,
+    required: true,
+  },
+  langCode: {
     type: String,
     required: true,
   },

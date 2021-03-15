@@ -4,7 +4,10 @@ export type AttractionType = {
   name: string,
   picture: string,
   description: string,
-  versionKey: boolean,
+  score: {
+    score: number,
+    votedPeople: Array<string>,
+  },
 }
 
 export interface AttractionState {
@@ -43,6 +46,7 @@ export interface SetAttractions {
 
 export interface FetchAttractionAction {
   type: AttractionActionTypes.FETCH_ATTRACTIONS;
+  payload: string;
 }
 
 export interface FilterAttractionAction {
