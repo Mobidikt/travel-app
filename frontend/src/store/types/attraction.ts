@@ -8,6 +8,7 @@ export type AttractionType = {
     score: number,
     votedPeople: Array<string>,
   },
+  id: string,
 }
 
 export interface AttractionState {
@@ -23,6 +24,7 @@ export enum AttractionActionTypes {
   REQUESTED_ATTRACTIONS_FAILED = 'ATTRACTIONS/REQUESTED_ATTRACTIONS_FAILED',
   SET_ATTRACTIONS = 'ATTRACTIONS/SET_CURRENT_ATTRACTIONS',
   FILTER_ATTRACTIONS = 'ATTRACTIONS/FILTER_ATTRACTIONS',
+  SET_NEW_SCORE = 'ATTRACTIONS/SET_NEW_SCORE',
 }
 
 export interface RequestedAttractionAction {
@@ -54,6 +56,11 @@ export interface FilterAttractionAction {
   payload: string;
 }
 
+export interface SetNewScoreAction {
+  type: AttractionActionTypes.SET_NEW_SCORE;
+  payload: { id: string, email: string, stars: number };
+}
+
 export type AttractionAction =
   | RequestedAttractionAction
   | RequestedAttractionSucceededAction
@@ -61,3 +68,4 @@ export type AttractionAction =
   | FetchAttractionAction
   | FilterAttractionAction
   | SetAttractions
+  | SetNewScoreAction

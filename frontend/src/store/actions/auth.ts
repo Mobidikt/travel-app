@@ -26,9 +26,13 @@ const requestedLogin = (): RequestedLoginAction => ({
   type: AuthActionTypes.REQUESTED_LOGIN,
 })
 
-const requestedLoginSucceeded = (token: string, photo: string): RequestedLoginSucceededAction => ({
+const requestedLoginSucceeded = (
+  token: string,
+  photo: string,
+  email: string,
+): RequestedLoginSucceededAction => ({
   type: AuthActionTypes.REQUESTED_LOGIN_SUCCEEDED,
-  payload: { token, photo },
+  payload: { token, photo, email },
 })
 
 const requestedLoginFailed = (errorMessage: string): RequestedLoginFailedAction => ({

@@ -8,7 +8,6 @@ import LanguageSelect from '../LanguageSelect/LanguageSelect'
 import SearchField from '../SearchField/SearchField'
 import useActions from '../../hooks/useActions'
 import AuthCard from '../AuthCard/AuthCard'
-import Grades from '../Grades/Grades'
 import config from '../../config'
 
 import './Header.scss'
@@ -44,7 +43,6 @@ const Header: React.FC = () => {
           <div className="menu-bar">
             <LanguageSelect />
             {mainLocation ? <SearchField /> : null}
-            {/* {mainLocation ? <Grades /> : null} */}
           </div>
           {token ? (
             <div className="user-info">
@@ -66,8 +64,6 @@ const Header: React.FC = () => {
               Войти
             </Button>
           )}
-
-          {mainLocation ? null : <Grades />}
         </div>
       </div>
       <h1 className="header__title">

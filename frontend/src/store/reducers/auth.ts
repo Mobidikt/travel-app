@@ -9,6 +9,7 @@ const initialState: AuthState = {
   errorMessage: null,
   isVisibleAuthCard: false,
   isRegistrated: false,
+  email: localStorage.getItem('email') || null,
 }
 
 const reducer = (state = initialState, action: AuthAction): AuthState => {
@@ -23,10 +24,12 @@ const reducer = (state = initialState, action: AuthAction): AuthState => {
     case AuthActionTypes.REQUESTED_LOGIN_SUCCEEDED: {
       localStorage.setItem('token', action.payload.token)
       localStorage.setItem('photo', action.payload.photo)
+      localStorage.setItem('email', action.payload.email)
       return {
         ...state,
         token: action.payload.token,
         userPhoto: action.payload.photo,
+        email: action.payload.email,
         isLoading: false,
       }
     }

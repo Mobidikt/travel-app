@@ -6,6 +6,7 @@ import { LeftOutlined, RightOutlined } from '@ant-design/icons'
 import useTypedSelector from '../../hooks/useTypedSelector'
 import useActions from '../../hooks/useActions'
 import config from '../../config'
+import Grades from '../Grades/Grades'
 
 const SampleNextArrow = (props: any) => {
   // eslint-disable-next-line
@@ -89,6 +90,7 @@ const CarouselArrows = () => {
                     <div className="card-slider__info">
                       <h3 className="card-slider__title">{item.name}</h3>
                       <p className="card-slider__description">{item.description}</p>
+                      <Grades attractionId={item.id} score={item.score} />
                     </div>
                   </div>
                 </div>
