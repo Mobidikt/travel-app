@@ -16,3 +16,13 @@
     font-size: 20px;
   }
 }
+@media screen and (max-width: 600px){
+  .weather {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 500px){
+  .weather {
+    width: 90%;
+  }
+}

@@ -8,7 +8,6 @@ interface LanguageState {
 let initLang: 'en' | 'ru' | 'de' = 'ru'
 // eslint-disable-next-line
 const loadLang = () => {
-  console.log(localStorage.getItem('language'))
   if (localStorage.getItem('language') === 'en') {
     // eslint-disable-next-line
     return (initLang = 'en')

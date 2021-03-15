@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Avatar, Image } from 'antd'
 import { Link, useLocation } from 'react-router-dom'
 import { useIntl } from 'react-intl'
-import { LoginOutlined, LogoutOutlined } from '@ant-design/icons'
+import { LoginOutlined, LogoutOutlined, UserOutlined } from '@ant-design/icons'
 import logo from '../../assets/logo.png'
 import LanguageSelect from '../LanguageSelect/LanguageSelect'
 import SearchField from '../SearchField/SearchField'
@@ -21,7 +21,16 @@ const Header: React.FC = () => {
 
   const { token, userPhoto } = useTypedSelector((state) => state.authReducer)
   const { setIsVisibleAuthCard, logout } = useActions()
-
+  const { language } = useTypedSelector((state) => state.language)
+  const ending = (country: string) => {
+    if (country === 'Доминиканская Республика') {
+      return 'Доминиканской Республики'
+      // eslint-disable-next-line
+    } else if (country === 'Венесуэла') {
+      return 'Венесуэле'
+      // eslint-disable-next-line
+    } else return country.substring(0, country.length - 1) + 'и'
+  }
   let backgroundHeader = {}
   if (currentCountry && !mainLocation) {
     const Background = currentCountry.picture
@@ -31,7 +40,7 @@ const Header: React.FC = () => {
   } else {
     backgroundHeader = {}
   }
-
+  const nameCountry = (country: string) => (language === 'ru' ? ending(country) : country)
   return (
     <header className="header" style={backgroundHeader}>
       <AuthCard />
@@ -46,10 +55,14 @@ const Header: React.FC = () => {
           </div>
           {token ? (
             <div className="user-info">
-              <Avatar
-                size={40}
-                src={<Image src={`${config.API_URL || ''}/${userPhoto || ''}`} />}
-              />
+              {userPhoto !== 'null' ? (
+                <Avatar
+                  size={40}
+                  src={<Image src={`${config.API_URL || ''}/${userPhoto || ''}`} />}
+                />
+              ) : (
+                <Avatar icon={<UserOutlined />} />
+              )}
               <Button size="large" shape="round" onClick={logout} icon={<LogoutOutlined />}>
                 {intl.formatMessage({ id: 'Exit' })}
               </Button>
@@ -61,13 +74,16 @@ const Header: React.FC = () => {
               onClick={setIsVisibleAuthCard}
               icon={<LoginOutlined />}
             >
-              Войти
+              {intl.formatMessage({ id: 'Login' })}
             </Button>
           )}
         </div>
       </div>
       <h1 className="header__title">
-        {mainLocation ? 'Travel app' : `Travel to the ${currentCountry?.country || ''}`}
+        {mainLocation
+          ? `${intl.formatMessage({ id: 'Travel_app' })}`
+          : `${intl.formatMessage({ id: 'Travel_to_the' })}
+          ${currentCountry?.country ? nameCountry(currentCountry.country) : ''}`}
       </h1>
     </header>
   )

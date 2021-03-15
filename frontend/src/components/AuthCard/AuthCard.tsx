@@ -14,8 +14,8 @@ const AuthCard: React.FC = () => {
   const intl = useIntl()
 
   const [buttons, setButtons] = useState([
-    { title: 'Авторизация', isActive: true },
-    { title: 'Регистрация', isActive: false },
+    { title: 'Authorization', isActive: true },
+    { title: 'Register', isActive: false },
   ])
 
   const { isVisibleAuthCard, userPhoto } = useTypedSelector((state) => state.authReducer)
@@ -48,7 +48,7 @@ const AuthCard: React.FC = () => {
             key={btn.title}
             onClick={() => activeClickHandler(btn.title)}
           >
-            {btn.title}
+            {intl.formatMessage({ id: btn.title })}
           </Button>
         ))}
       </div>

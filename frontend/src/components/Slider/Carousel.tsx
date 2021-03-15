@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { useIntl } from 'react-intl'
 import './Slider.scss'
 import { Row, Col, Carousel, Spin } from 'antd'
 import { useParams } from 'react-router-dom'
@@ -58,6 +59,7 @@ const settings = {
 }
 
 const CarouselArrows = () => {
+  const intl = useIntl()
   const { attraction, isLoading } = useTypedSelector((state) => state.attractionsReducer)
   const { language } = useTypedSelector((state) => state.language)
   const { fetchAttractions } = useActions()
@@ -73,7 +75,7 @@ const CarouselArrows = () => {
 
   return (
     <div className="slider">
-      <h2 className="slider__title">Attractions</h2>
+      <h2 className="slider__title">{intl.formatMessage({ id: 'Attractions' })}</h2>
       <Row className="slider__wrapper" justify="center">
         <Col span={20}>
           <Carousel
