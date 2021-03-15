@@ -1,7 +1,7 @@
 import { AuthState, AuthActionTypes, AuthAction } from '../types/auth'
 
 const initialState: AuthState = {
-  userPhoto: null,
+  userPhoto: localStorage.getItem('photo') || null,
   token: localStorage.getItem('token') || null,
   isLoading: false,
   isLoginError: false,
@@ -22,6 +22,7 @@ const reducer = (state = initialState, action: AuthAction): AuthState => {
 
     case AuthActionTypes.REQUESTED_LOGIN_SUCCEEDED: {
       localStorage.setItem('token', action.payload.token)
+      localStorage.setItem('photo', action.payload.photo)
       return {
         ...state,
         token: action.payload.token,

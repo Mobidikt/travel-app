@@ -20,6 +20,7 @@ module.exports.getAll = async function (req, res) {
         country: lang.countries[`id${country.id}`][langCode].country,
         capital: lang.countries[`id${country.id}`][langCode].capital,
         description: lang.countries[`id${country.id}`][langCode].description,
+        currencyName: lang.countries[`id${country.id}`][langCode].currencyName,
       }
     })
 
