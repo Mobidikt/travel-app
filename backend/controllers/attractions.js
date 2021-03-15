@@ -34,7 +34,7 @@ module.exports.getById = async function (req, res) {
       console.log(lang.attractions[`id${attraction.idCountry}`])
       return {
         name: lang.attractions[`id${attraction.idCountry}`][langCode][idx].name,
-        pucture: attraction.picture,
+        picture: attraction.picture,
         description: lang.attractions[`id${attraction.idCountry}`][langCode][idx].description,
         score: attraction.score,
       }
