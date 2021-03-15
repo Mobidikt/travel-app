@@ -47,12 +47,15 @@
   align-items: center;
 }
 
-@media (max-width: 470px) {
+@media (max-width: 650px) {
   .auth-card {
+    margin: 10px 4px 2px 0px;
     right: 0px;
-    top: 60px;
+    top: 105px;
   }
-
+  .auth-card__close {
+    top: -17px;
+  }
   .ant-card-body {
     padding: 0;
  

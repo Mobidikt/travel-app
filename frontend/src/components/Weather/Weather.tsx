@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React, { useEffect, useState } from 'react'
+import { useIntl } from 'react-intl'
 import './Weather.scss'
 import useTypedSelector from '../../hooks/useTypedSelector'
 
@@ -13,6 +14,7 @@ interface IWeatherData {
 }
 
 const Weather: React.FC = () => {
+  const intl = useIntl()
   const { currentCountry } = useTypedSelector((state) => state.countriesReducer)
   const [weatherData, setWeatherData] = useState<IWeatherData | undefined>()
   const { language } = useTypedSelector( (state) => state.language)
@@ -44,10 +46,10 @@ const Weather: React.FC = () => {
         {weatherData?.name} : {weather?.description}
         <img src={iconUrl} alt={weather?.description} />
       </h1>
-      <p className="weather__property">Current temperature: {weatherData?.main.temp}°</p>
-      <p className="weather__property">High temperature: {weatherData?.main.temp_max}°</p>
-      <p className="weather__property">Low temperature: {weatherData?.main.temp_min}°</p>
-      <p className="weather__property">Wind Speed: {weatherData?.wind.speed} mi/hr</p>
+      <p className="weather__property">{intl.formatMessage({ id: 'current_temperature' })}: {weatherData?.main.temp} °</p>
+      <p className="weather__property">{intl.formatMessage({ id: 'high_temperature' })}: {weatherData?.main.temp_max} °</p>
+      <p className="weather__property">{intl.formatMessage({ id: 'low_temperature' })}: {weatherData?.main.temp_min} °</p>
+      <p className="weather__property">{intl.formatMessage({ id: 'wind_speed' })}: {weatherData?.wind.speed} {intl.formatMessage({ id: 'mi_hr' })}</p>
     </div>
   )
 }

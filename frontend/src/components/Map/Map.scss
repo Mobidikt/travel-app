@@ -30,4 +30,13 @@
         width: 100%;
         height: 100%;
     }
+    &__title{
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 48px;
+        line-height: 65px;
+        align-items: center;
+        text-align: center;
+    }
 }

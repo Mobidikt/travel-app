@@ -22,7 +22,16 @@ const Header: React.FC = () => {
 
   const { token, userPhoto } = useTypedSelector((state) => state.authReducer)
   const { setIsVisibleAuthCard, logout } = useActions()
-
+  const { language } = useTypedSelector((state) => state.language)
+  const ending = (country: string) => {
+    if (country === 'Доминиканская Республика') {
+      return 'Доминиканской Республики'
+      // eslint-disable-next-line
+    } else if (country === 'Венесуэла') {
+      return 'Венесуэле'
+      // eslint-disable-next-line
+    } else return country.substring(0, country.length - 1) + 'и'
+  }
   let backgroundHeader = {}
   if (currentCountry && !mainLocation) {
     const Background = currentCountry.picture
@@ -32,7 +41,7 @@ const Header: React.FC = () => {
   } else {
     backgroundHeader = {}
   }
-
+  const nameCountry = (country: string) => (language === 'ru' ? ending(country) : country)
   return (
     <header className="header" style={backgroundHeader}>
       <AuthCard />
@@ -63,7 +72,7 @@ const Header: React.FC = () => {
               onClick={setIsVisibleAuthCard}
               icon={<LoginOutlined />}
             >
-              Войти
+              {intl.formatMessage({ id: 'Login' })}
             </Button>
           )}
 
@@ -71,7 +80,10 @@ const Header: React.FC = () => {
         </div>
       </div>
       <h1 className="header__title">
-        {mainLocation ? 'Travel app' : `Travel to the ${currentCountry?.country || ''}`}
+        {mainLocation
+          ? `${intl.formatMessage({ id: 'Travel_app' })}`
+          : `${intl.formatMessage({ id: 'Travel_to_the' })}
+          ${currentCountry?.country ? nameCountry(currentCountry.country) : ''}`}
       </h1>
     </header>
   )
