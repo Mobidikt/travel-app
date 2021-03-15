@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Avatar, Image } from 'antd'
 import { Link, useLocation } from 'react-router-dom'
 import { useIntl } from 'react-intl'
-import { LoginOutlined, LogoutOutlined } from '@ant-design/icons'
+import { LoginOutlined, LogoutOutlined, UserOutlined } from '@ant-design/icons'
 import logo from '../../assets/logo.png'
 import LanguageSelect from '../LanguageSelect/LanguageSelect'
 import SearchField from '../SearchField/SearchField'
@@ -57,10 +57,14 @@ const Header: React.FC = () => {
           </div>
           {token ? (
             <div className="user-info">
-              <Avatar
-                size={40}
-                src={<Image src={`${config.API_URL || ''}/${userPhoto || ''}`} />}
-              />
+              {userPhoto !== 'null' ? (
+                <Avatar
+                  size={40}
+                  src={<Image src={`${config.API_URL || ''}/${userPhoto || ''}`} />}
+                />
+              ) : (
+                <Avatar icon={<UserOutlined />} />
+              )}
               <Button size="large" shape="round" onClick={logout} icon={<LogoutOutlined />}>
                 {intl.formatMessage({ id: 'Exit' })}
               </Button>
