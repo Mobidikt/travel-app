@@ -14,6 +14,7 @@ const attractionsRouter = require('./routes/attractions')
 const authRoutes = require('./routes/auth')
 const gradeRoutes = require('./routes/grades')
 const attrRoutes = require('./routes/attractions')
+const Attraction = require('./models/Attraction')
 
 app.use('/uploads', express.static('uploads'))
 
