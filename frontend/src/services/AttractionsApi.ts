@@ -12,6 +12,12 @@ const getAll = async () => {
   return data
 }
 
+const getByCountryId = async (id: string) => {
+  const data = await axios.get(`${config.API_URL || ''}/attraction/${id}`)
+  return data
+}
+
 export default {
   getAll,
+  getByCountryId,
 }

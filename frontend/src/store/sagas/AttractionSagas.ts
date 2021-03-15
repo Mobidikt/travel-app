@@ -5,10 +5,11 @@ import actions from '../actions/attractions'
 import AttractionsApi from '../../services/AttractionsApi'
 
 function* fetchAttractions(action: FetchAttractionAction) {
+  const id = action.payload
   try {
     yield put(actions.requestedAttractions())
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const { data } = yield call(AttractionsApi.getAll)
+    const { data } = yield call(() => AttractionsApi.getByCountryId(id))
     yield put(actions.requestedAttractionsSucceeded(data))
   } catch (error) {
     yield put(actions.requestedAttractionsFailed(error))

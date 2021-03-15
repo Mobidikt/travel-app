@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Avatar, Image } from 'antd'
 import { Link, useLocation } from 'react-router-dom'
+import { useIntl } from 'react-intl'
 import { LoginOutlined, LogoutOutlined } from '@ant-design/icons'
 import logo from '../../assets/logo.png'
 import LanguageSelect from '../LanguageSelect/LanguageSelect'
@@ -13,6 +14,7 @@ import './Header.scss'
 import useTypedSelector from '../../hooks/useTypedSelector'
 
 const Header: React.FC = () => {
+  const intl = useIntl()
   const { pathname } = useLocation()
   const mainLocation = pathname === '/countries'
   const { currentCountry } = useTypedSelector((state) => state.countriesReducer)
@@ -50,7 +52,7 @@ const Header: React.FC = () => {
                 src={<Image src={`${config.API_URL || ''}/${userPhoto || ''}`} />}
               />
               <Button size="large" shape="round" onClick={logout} icon={<LogoutOutlined />}>
-                Выйти
+                {intl.formatMessage({ id: 'Exit' })}
               </Button>
             </div>
           ) : (
