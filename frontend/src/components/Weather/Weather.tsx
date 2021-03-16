@@ -23,12 +23,12 @@ const Weather: React.FC = () => {
     const URL =
       'http://api.openweathermap.org/data/2.5/weather?q=' +
       currentCountry?.capital +
-      '&appid=b1b35bba8b434a28a0be2a3e1071ae5b&units=metric&lang=' + language
+      '&appid=a86d572e7f2e5fc588cef32d4597491f&units=metric&lang=' + language
 
     fetch(URL)
       .then((res) => res.json())
       .then((json) => {
-        if (json.cod !== '404') {
+        if (json.cod <= '400' ) {
           setWeatherData(json)
         }
       })
@@ -50,7 +50,7 @@ const Weather: React.FC = () => {
           <p className="weather__property">Low temperature: {weatherData?.main.temp_min}°</p>
           <p className="weather__property">Wind Speed: {weatherData?.wind.speed} mi/hr</p>
         </div> :
-        <h2>Weather Api Not Found</h2>
+        <h2>Weather Api Not Available</h2>
       }
 
     </div>
