@@ -3,15 +3,10 @@ import { useIntl } from 'react-intl'
 import './Slider.scss'
 import { Row, Col, Carousel, Spin } from 'antd'
 import { useParams } from 'react-router-dom'
-import {
-  LeftOutlined,
-  RightOutlined,
-  FullscreenExitOutlined,
-  FullscreenOutlined,
-} from '@ant-design/icons'
+import { LeftOutlined, RightOutlined } from '@ant-design/icons'
+import Grades from '../Grades/Grades'
 import useTypedSelector from '../../hooks/useTypedSelector'
 import useActions from '../../hooks/useActions'
-import Grades from '../Grades/Grades'
 
 const SampleNextArrow = (props: any) => {
   // eslint-disable-next-line

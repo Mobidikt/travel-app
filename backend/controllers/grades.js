@@ -16,7 +16,7 @@ module.exports.create = async function (req, res) {
 
 module.exports.getById = async function (req, res) {
   try {
-    const data = await Grade.find({ id: req.params['countryId'] }).populate().exec()
+    const data = await Grade.find({ idAttraction: req.params['attractionId'] }).populate().exec()
     const res1 = data.value.reduce(f, el => f + el)
     const res2 = res1 / Grade.find().count()
     return res.send(res2)

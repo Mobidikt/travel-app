@@ -17,20 +17,20 @@ const Weather: React.FC = () => {
   const intl = useIntl()
   const { currentCountry } = useTypedSelector((state) => state.countriesReducer)
   const [weatherData, setWeatherData] = useState<IWeatherData | undefined>()
-  const { language } = useTypedSelector( (state) => state.language)
-  // const weather = weatherData?.weather[0]
-  // const iconUrl = 'http://openweathermap.org/img/w/' + weather?.icon + '.png'
+  const { language } = useTypedSelector((state) => state.language)
+  const weather = weatherData?.weather[0]
+  const iconUrl = 'http://openweathermap.org/img/w/' + weather?.icon + '.png'
 
   useEffect(() => {
     const URL =
       'http://api.openweathermap.org/data/2.5/weather?q=' +
       currentCountry?.capital +
-      '&appid=b1b35bba8b434a28a0be2a3e1071ae5b&units=metric&lang=' + language
+      '&appid=a86d572e7f2e5fc588cef32d4597491f&units=metric&lang=' + language
 
     fetch(URL)
       .then((res) => res.json())
       .then((json) => {
-        if (json.cod !== '404') {
+        if (json.cod <= '400' ) {
           setWeatherData(json)
         }
       })
@@ -41,7 +41,7 @@ const Weather: React.FC = () => {
   console.log(weatherData)
   return (
     <div className="weather">
-      {/* { weatherData ?
+      { weatherData ?
         <div className="weather__inner">
           <h1 className="weather__title">
             {weatherData?.name} : {weather?.description}
@@ -52,7 +52,7 @@ const Weather: React.FC = () => {
           <p className="weather__property">{intl.formatMessage({ id: 'low_temperature' })}: {weatherData?.main.temp_min} °</p>
           <p className="weather__property">{intl.formatMessage({ id: 'wind_speed' })}: {weatherData?.wind.speed} {intl.formatMessage({ id: 'mi_hr' })}</p>
         </div> :
-        <h2>Weather Api Not Found</h2> }*/
+        <h2>Weather Api Not Available</h2>
       }
     </div>
   )

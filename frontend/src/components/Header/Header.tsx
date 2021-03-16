@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import { Button, Avatar, Image } from 'antd'
 import { Link, useLocation } from 'react-router-dom'
 import { useIntl } from 'react-intl'
@@ -8,6 +8,7 @@ import LanguageSelect from '../LanguageSelect/LanguageSelect'
 import SearchField from '../SearchField/SearchField'
 import useActions from '../../hooks/useActions'
 import AuthCard from '../AuthCard/AuthCard'
+import UserProfile from '../UserProfile/UserProfile'
 import config from '../../config'
 
 import './Header.scss'
@@ -18,11 +19,19 @@ const Header: React.FC = () => {
   const intl = useIntl()
   const { pathname } = useLocation()
   const mainLocation = pathname === '/countries'
-  const { currentCountry } = useTypedSelector((state) => state.countriesReducer)
 
+  const { currentCountry } = useTypedSelector((state) => state.countriesReducer)
   const { token, userPhoto } = useTypedSelector((state) => state.authReducer)
-  const { setIsVisibleAuthCard, logout } = useActions()
+  const { setIsVisibleAuthCard, setIsVisibleProfileCard, logout } = useActions()
   const { language } = useTypedSelector((state) => state.language)
+
+  const avatarRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    avatarRef.current?.addEventListener('click', () => setIsVisibleProfileCard())
+    // eslint-disable-next-line
+  }, [])
+
   const ending = (country: string) => {
     if (country === 'Доминиканская Республика') {
       return 'Доминиканской Республики'
@@ -45,6 +54,7 @@ const Header: React.FC = () => {
   return (
     <header className="header" style={backgroundHeader}>
       <AuthCard />
+      <UserProfile />
       <div className="header__wrapper">
         <Link to="/countries">
           <img src={logo} className="header__logo" alt="logo" />
@@ -57,12 +67,21 @@ const Header: React.FC = () => {
           {token ? (
             <div className="user-info">
               {userPhoto ? (
-                <Avatar
-                  size={40}
-                  src={<Image src={`${config.API_URL || ''}/${userPhoto || ''}`} />}
-                />
+                <div>
+                  <Avatar
+                    ref={avatarRef}
+                    size={40}
+                    src={
+                      <img
+                        className="avatar"
+                        src={`${config.API_URL || ''}/${userPhoto || ''}`}
+                        alt="avatar"
+                      />
+                    }
+                  />
+                </div>
               ) : (
-                <Avatar icon={<UserOutlined />} />
+                <Avatar ref={avatarRef} icon={<UserOutlined />} />
               )}
               <Button size="large" shape="round" onClick={logout} icon={<LogoutOutlined />}>
                 {intl.formatMessage({ id: 'Exit' })}

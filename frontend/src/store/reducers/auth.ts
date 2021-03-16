@@ -2,12 +2,14 @@ import { AuthState, AuthActionTypes, AuthAction } from '../types/auth'
 
 const initialState: AuthState = {
   userPhoto: localStorage.getItem('photo') || null,
+  username: localStorage.getItem('username') || null,
   token: localStorage.getItem('token') || null,
   isLoading: false,
   isLoginError: false,
   isRegistrationError: false,
   errorMessage: null,
   isVisibleAuthCard: false,
+  isVisibleProfile: false,
   isRegistrated: false,
   email: localStorage.getItem('email') || null,
 }
@@ -22,17 +24,20 @@ const reducer = (state = initialState, action: AuthAction): AuthState => {
     }
 
     case AuthActionTypes.REQUESTED_LOGIN_SUCCEEDED: {
-      const { token, photo, email } = action.payload
+      const { token, photo, email, username } = action.payload
+      console.log(action.payload)
       localStorage.setItem('token', token)
       if (action.payload.photo) {
         localStorage.setItem('photo', photo)
       }
       localStorage.setItem('email', email)
+      localStorage.setItem('username', username)
       return {
         ...state,
         token: action.payload.token,
         userPhoto: action.payload.photo,
         email: action.payload.email,
+        username: action.payload.username,
         isLoading: false,
       }
     }
@@ -50,6 +55,15 @@ const reducer = (state = initialState, action: AuthAction): AuthState => {
       return {
         ...state,
         isVisibleAuthCard: !state.isVisibleAuthCard,
+        isVisibleProfile: false,
+      }
+    }
+
+    case AuthActionTypes.SET_IS_VISIBLE_PROFILE_CARD: {
+      return {
+        ...state,
+        isVisibleProfile: !state.isVisibleProfile,
+        isVisibleAuthCard: false,
       }
     }
 
@@ -81,6 +95,7 @@ const reducer = (state = initialState, action: AuthAction): AuthState => {
       localStorage.removeItem('token')
       localStorage.removeItem('email')
       localStorage.removeItem('photo')
+      localStorage.removeItem('username')
       return {
         ...state,
         userPhoto: null,

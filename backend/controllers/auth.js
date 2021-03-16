@@ -18,7 +18,9 @@ module.exports.login = async function (req, res) {
     const user = await User.findOne({ email })
 
     if (!user) {
-      return res.status(400).json({ message: 'Пользователь с такой почтой не найден' })
+      return res
+        .status(400)
+        .json({ message: 'Пользователь с такой почтой не найден' })
     }
 
     const validPassword = bcrypt.compareSync(password, user.password)
@@ -28,7 +30,14 @@ module.exports.login = async function (req, res) {
     }
 
     const token = generateAuthToken(user._id)
-    res.status(200).json({ token: `Bearer ${token}`, email: user.email, photo: user.photo })
+    res
+      .status(200)
+      .json({
+        token: `Bearer ${token}`,
+        email: user.email,
+        photo: user.photo,
+        name: user.name,
+      })
   } catch (error) {
     errorHandler(error)
   }
@@ -48,7 +57,9 @@ module.exports.register = async function (req, res) {
     const candidate = await User.findOne({ email })
 
     if (candidate) {
-      return res.status(400).json({ message: 'Пользователь с такой почтой уже существует' })
+      return res
+        .status(400)
+        .json({ message: 'Пользователь с такой почтой уже существует' })
     }
 
     const hashPassword = bcrypt.hashSync(password, 6)

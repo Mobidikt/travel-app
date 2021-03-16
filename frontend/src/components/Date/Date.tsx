@@ -3,13 +3,14 @@ import React, { useState } from 'react'
 import './Date.scss'
 import { useInterval } from '../../hooks/useInterval'
 import useTypedSelector from '../../hooks/useTypedSelector'
+import CurrencyCard from '../CurrencyCard/CurrencyCard'
 
 const DateComponent: React.FC = () => {
   const { currentCountry } = useTypedSelector((state) => state.countriesReducer)
-  const { language } = useTypedSelector( (state) => state.language)
+  const { language } = useTypedSelector((state) => state.language)
   const [date, setDate] = useState('')
   const getDate = () => {
-    const options: { [key: string]: string|undefined } = {
+    const options: { [key: string]: string | undefined } = {
       day: 'numeric',
       month: 'long',
       year: 'numeric',
@@ -27,6 +28,7 @@ const DateComponent: React.FC = () => {
   return (
     <div className="date">
       <span>{date}</span>
+      <CurrencyCard />
     </div>
   )
 }
