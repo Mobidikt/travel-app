@@ -4,13 +4,11 @@ import useTypedSelector from '../../hooks/useTypedSelector'
 const Currency: React.FC = () => {
   const { currentCountry } = useTypedSelector((state) => state.countriesReducer)
   const [currency, setCurrency] = useState<number>(5)
-  console.log(currentCountry)
-  const currUSDtoW = (obj: any): void => {
-    // eslint-disable-next-line
-    const { rates } = obj
-    const currencyId = currentCountry?.currency
-    // eslint-disable-next-line
-    setCurrency(rates)
+  const { language } = useTypedSelector((state) => state.language)
+  console.log(language)
+  const currUSDtoW = (eu: number, ot: number): void => {
+    const res = eu / ot
+    setCurrency(res)
   }
   useEffect(() => {
     const id = '2d0321814c8e4db9bba4fc098cb80a92'
@@ -24,15 +22,23 @@ const Currency: React.FC = () => {
         // eslint-disable-next-line
         const { rates } = res
         const currencyId = currentCountry?.currency || 'EUR'
-        // eslint-disable-next-line
-        setCurrency(rates[currencyId])
+        if (language === 'en') {
+          // eslint-disable-next-line
+          setCurrency(rates[currencyId])
+        } else if (language === 'de') {
+          // eslint-disable-next-line
+          currUSDtoW(rates.EUR, rates[currencyId])
+        } else if (language === 'ru') {
+          // eslint-disable-next-line
+          currUSDtoW(rates.RUB, rates[currencyId])
+        }
       })
       .catch((error) => console.log(error))
-  }, [currentCountry?.currency])
-  console.log(currency)
+  }, [currentCountry?.currency, language])
+  console.log(currentCountry)
   return (
     <div className="currency">
-      {currency} {currentCountry?.currency}
+      {currency} {currentCountry?.currencyName}
     </div>
   )
 }
