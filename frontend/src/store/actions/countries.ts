@@ -10,8 +10,9 @@ const filterCountries = (searchVal: string): CountriesAction => ({
   payload: searchVal,
 })
 
-const fetchCountries = (): CountriesAction => ({
+const fetchCountries = (currentCountryId: string | null): CountriesAction => ({
   type: CountriesActionTypes.FETCH_COUNTRIES,
+  payload: currentCountryId,
 })
 
 const requestedCountries = (): CountriesAction => ({

@@ -39,7 +39,8 @@ module.exports.register = async function (req, res) {
     const errors = validationResult(req)
 
     if (!errors.isEmpty()) {
-      return res.status(400).json({ message: 'Ошибка при регистрации', errors })
+      const e = errors.errors[0].msg
+      return res.status(400).json({ message: e })
     }
 
     const { name, email, password } = req.body

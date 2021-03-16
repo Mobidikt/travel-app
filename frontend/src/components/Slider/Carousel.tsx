@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { useIntl } from 'react-intl'
 import './Slider.scss'
 import { Row, Col, Carousel, Spin } from 'antd'
 import { useParams } from 'react-router-dom'
@@ -6,7 +7,6 @@ import { LeftOutlined, RightOutlined } from '@ant-design/icons'
 import Grades from '../Grades/Grades'
 import useTypedSelector from '../../hooks/useTypedSelector'
 import useActions from '../../hooks/useActions'
-import config from '../../config'
 
 const SampleNextArrow = (props: any) => {
   // eslint-disable-next-line
@@ -30,7 +30,7 @@ const SampleNextArrow = (props: any) => {
   )
 }
 
-const SamplePrevArrow = (props: any) => {
+const SamplePrevArrow: React.FC = (props: any) => {
   // eslint-disable-next-line
   const { className, style, onClick } = props
   return (
@@ -58,6 +58,7 @@ const settings = {
 }
 
 const CarouselArrows = () => {
+  const intl = useIntl()
   const { attraction, isLoading } = useTypedSelector((state) => state.attractionsReducer)
   const { language } = useTypedSelector((state) => state.language)
   const { fetchAttractions } = useActions()
@@ -73,7 +74,7 @@ const CarouselArrows = () => {
 
   return (
     <div className="slider">
-      <h2 className="slider__title">Attractions</h2>
+      <h2 className="slider__title">{intl.formatMessage({ id: 'Attractions' })}</h2>
       <Row className="slider__wrapper" justify="center">
         <Col span={20}>
           <Carousel
@@ -90,7 +91,7 @@ const CarouselArrows = () => {
                     <div className="card-slider__info">
                       <h3 className="card-slider__title">{item.name}</h3>
                       <p className="card-slider__description">{item.description}</p>
-                      {/* <Grades attractionId={item._id} /> */}
+                      <Grades attractionId={item.id} score={item.score} />
                     </div>
                   </div>
                 </div>

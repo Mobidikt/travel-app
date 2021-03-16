@@ -11,6 +11,7 @@ export type CountryType = {
   map: string,
   timeZone: string,
   zip: string,
+  currencyName: string,
 }
 
 export interface CountriesState {
@@ -50,6 +51,7 @@ export interface SetCurrentCountryAction {
 
 export interface FetchCountriesAction {
   type: CountriesActionTypes.FETCH_COUNTRIES;
+  payload: string | null;
 }
 
 export interface FilterCountriesAction {

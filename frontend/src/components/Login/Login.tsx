@@ -39,13 +39,17 @@ const Login: React.FC = () => {
           <Input className="form__input" />
         </Form.Item>
 
-        <Form.Item label="Пароль" name="password" rules={[{ required: true }]}>
+        <Form.Item
+          label={intl.formatMessage({ id: 'password' })}
+          name="password"
+          rules={[{ required: true }]}
+        >
           <Input.Password className="form__input" />
         </Form.Item>
 
         <Form.Item>
           <Button size="large" htmlType="submit" className="form__btn">
-            войти
+            {intl.formatMessage({ id: 'Login' })}
           </Button>
         </Form.Item>
       </Form>

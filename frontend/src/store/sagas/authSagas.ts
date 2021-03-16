@@ -11,7 +11,7 @@ function* login(action: FetchLoginAction) {
     yield put(authActions.requestedLogin())
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const { data } = yield call(() => AuthApi.login(email, password))
-    yield put(authActions.requestedLoginSucceeded(data.token, data.photo))
+    yield put(authActions.requestedLoginSucceeded(data.token, data.photo, data.email))
     yield put(authActions.setIsVisibleAuthCard())
     yield put(authActions.clearErros())
   } catch (error) {

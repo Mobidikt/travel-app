@@ -31,6 +31,26 @@ const reducer = (state = initialState, action: AttractionAction): AttractionStat
       }
     }
 
+    case AttractionActionTypes.SET_NEW_SCORE: {
+      const { id, email, stars } = action.payload
+      const newAttractions = state.attraction.map((el) => {
+        return el.id !== id
+          ? el
+          : {
+              ...el,
+              score: {
+                score: el.score.score + stars,
+                votedPeople: [...el.score.votedPeople, email],
+              },
+            }
+      })
+
+      return {
+        ...state,
+        attraction: newAttractions,
+      }
+    }
+
     // case AttractionActionTypes.FILTER_ATTRACTIONS: {
     //   const regExp = new RegExp(action.payload, 'ig')
     //   // eslint-disable-next-line

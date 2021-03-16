@@ -60,6 +60,19 @@
 .menu-bar {
     display: flex;
 }
+
+
+.user-info {
+    display: flex;
+    align-items: center;
+    
+
+    span {
+        margin: 0 3px;
+        cursor: pointer;
+    }
+}
+
 @media screen and (max-width: 750px){
     .header__logo{
         width: 50px;

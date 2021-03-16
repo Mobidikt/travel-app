@@ -6,8 +6,6 @@ axios.interceptors.request.use((request) => {
   const { token } = state.authReducer
   const { language } = state.language
 
-  console.log(token, language)
-
   if (token) {
     // eslint-disable-next-line
     request.headers.common.Authorization = token

@@ -1,45 +1,50 @@
-import React, { useEffect, useState } from 'react'
-import { Rate } from 'antd'
-import { StarOutlined, StarFilled } from '@ant-design/icons'
+import { message, Rate } from 'antd'
+import React from 'react'
+import useActions from '../../hooks/useActions'
 import useTypedSelector from '../../hooks/useTypedSelector'
+import AttractionsApi from '../../services/AttractionsApi'
+import './Grades.scss'
 
-const Grades: React.FunctionComponent<{ attractionId: string }> = ({ attractionId }) => {
-  const { currentCountry } = useTypedSelector((state) => state.countriesReducer)
-  const [grade, setGrade] = useState<number>(5)
-  /* useEffect(() => {
-    const HOST = 'http://localhost:8000'
-    const id: string = attractionId
-    const URL = `${HOST}/grade/${id}`
-    const ac = new AbortController()
-    fetch(URL)
-      .then((response) => response.json())
-      .then((response) => setGrade(response))
-      .catch((error) => setGrade(error))
-  }, [attractionId]) */
-  const handleGrades = (num: number): Record<string, unknown> => {
-    const gradeUser = {
-      id: attractionId,
-      value: num,
+type GradesPropsType = {
+  attractionId: string,
+  score: {
+    score: number,
+    votedPeople: Array<string>,
+  },
+}
+
+const Grades: React.FC<GradesPropsType> = ({ attractionId, score }) => {
+  const { email, token } = useTypedSelector((state) => state.authReducer)
+  const { setNewScore } = useActions()
+  const countVotedPeople = score.votedPeople.length
+
+  const countStars = score.score / countVotedPeople
+
+  const rateHandleClick = async (value: number) => {
+    if (!token) {
+      return message.warning('Это возможность доступна только авторизованным пользователям')
     }
-    const HOST = 'http://localhost:8000'
-    const id: string = attractionId
-    const URL = `${HOST}/grade/${id}/${num}`
-    const ac = new AbortController()
-    fetch(URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-      },
-      body: JSON.stringify(gradeUser),
-    })
-      .then((response) => response.json())
-      .then((response) => console.log(response))
-      .catch((error) => console.log(error))
-    return gradeUser
+
+    if (score.votedPeople.includes(email || '')) {
+      return message.warning('Вы уже оценили эту достопремечательность')
+    }
+
+    await AttractionsApi.update(attractionId, email || '', value)
+
+    setNewScore(attractionId, email || '', value)
+
+    return message.success('Вы успешно оценили эту достопремечательность')
   }
+
   return (
     <div className="grades">
-      <Rate allowHalf allowClear={false} onChange={(value) => handleGrades(value)} value={grade} />
+      {countVotedPeople === 0 ? (
+        <h3>Ещё никто не оценил эту достопримечательность</h3>
+      ) : (
+        <h3>Рейтинг: {countStars}</h3>
+      )}
+
+      <Rate value={countStars} onChange={rateHandleClick} />
     </div>
   )
 }

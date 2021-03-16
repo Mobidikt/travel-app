@@ -12,6 +12,11 @@ const getAll = async () => {
   return data
 }
 
+const update = async (id: string, email: string, score: number) => {
+  const data = await axios.patch(`${config.API_URL || ''}/attraction`, { id, email, score })
+  return data
+}
+
 const getByCountryId = async (id: string) => {
   const data = await axios.get(`${config.API_URL || ''}/attraction/${id}`)
   return data
@@ -20,4 +25,5 @@ const getByCountryId = async (id: string) => {
 export default {
   getAll,
   getByCountryId,
+  update,
 }

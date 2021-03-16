@@ -7,12 +7,15 @@ import useTypedSelector from '../../hooks/useTypedSelector'
 const { Option } = Select
 
 const LanguageSelect: React.FC = () => {
+  const { language } = useTypedSelector((state) => state.language)
+  const { currentCountry } = useTypedSelector((state) => state.countriesReducer)
   const { setLanguage, fetchCountries } = useActions()
+
   const changeLanguage = (newLanguage: 'en' | 'ru' | 'de') => {
     setLanguage(newLanguage)
-    fetchCountries()
+    fetchCountries(currentCountry ? currentCountry.id : null)
   }
-  const { language } = useTypedSelector((state) => state.language)
+
   return (
     <Select defaultValue={language} onChange={changeLanguage} style={{ width: 60 }}>
       <Option value="en">En</Option>

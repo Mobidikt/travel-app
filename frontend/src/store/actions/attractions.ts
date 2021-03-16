@@ -29,10 +29,17 @@ const requestedAttractionsFailed = (err: string): AttractionAction => ({
   payload: err,
 })
 
+const setNewScore = (id: string, email: string, stars: number): AttractionAction => ({
+  type: AttractionActionTypes.SET_NEW_SCORE,
+  payload: { id, email, stars },
+})
+
 export default {
   filterAttractions,
   fetchAttractions,
   requestedAttractions,
   requestedAttractionsSucceeded,
   requestedAttractionsFailed,
+  setNewScore,
+  setAttractions,
 }

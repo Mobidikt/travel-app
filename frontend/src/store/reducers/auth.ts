@@ -1,7 +1,7 @@
 import { AuthState, AuthActionTypes, AuthAction } from '../types/auth'
 
 const initialState: AuthState = {
-  userPhoto: null,
+  userPhoto: localStorage.getItem('photo') || null,
   token: localStorage.getItem('token') || null,
   isLoading: false,
   isLoginError: false,
@@ -9,6 +9,7 @@ const initialState: AuthState = {
   errorMessage: null,
   isVisibleAuthCard: false,
   isRegistrated: false,
+  email: localStorage.getItem('email') || null,
 }
 
 const reducer = (state = initialState, action: AuthAction): AuthState => {
@@ -21,11 +22,17 @@ const reducer = (state = initialState, action: AuthAction): AuthState => {
     }
 
     case AuthActionTypes.REQUESTED_LOGIN_SUCCEEDED: {
-      localStorage.setItem('token', action.payload.token)
+      const { token, photo, email } = action.payload
+      localStorage.setItem('token', token)
+      if (action.payload.photo) {
+        localStorage.setItem('photo', photo)
+      }
+      localStorage.setItem('email', email)
       return {
         ...state,
         token: action.payload.token,
         userPhoto: action.payload.photo,
+        email: action.payload.email,
         isLoading: false,
       }
     }
@@ -72,10 +79,13 @@ const reducer = (state = initialState, action: AuthAction): AuthState => {
 
     case AuthActionTypes.LOGOUT: {
       localStorage.removeItem('token')
+      localStorage.removeItem('email')
+      localStorage.removeItem('photo')
       return {
         ...state,
         userPhoto: null,
         token: null,
+        email: null,
       }
     }
 

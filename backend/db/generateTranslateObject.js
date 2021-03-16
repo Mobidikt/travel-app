@@ -16,16 +16,19 @@ module.exports.generateCountriesTranslationOjbect = () => {
         country: contriesEn[i].country,
         capital: contriesEn[i].capital,
         description: contriesEn[i].description,
+        currencyName: contriesEn[i].currencyName
       },
       ru: {
         country: contriesRu[i].country,
         capital: contriesRu[i].capital,
         description: contriesRu[i].description,
+        currencyName: contriesRu[i].currencyName
       },
       de: {
         country: contriesDe[i].country,
         capital: contriesDe[i].capital,
         description: contriesDe[i].description,
+        currencyName: contriesDe[i].currencyName
       },
     }
   }
