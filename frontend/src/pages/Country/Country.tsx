@@ -8,11 +8,13 @@ import useTypedSelector from '../../hooks/useTypedSelector'
 import DateComponent from '../../components/Date/Date'
 import Weather from '../../components/Weather/Weather'
 import Slider from '../../components/Slider/Carousel'
+import Currency from '../../components/Currency/Currency'
 
 const CountryPage = (
   <div className="country-page">
     <Description />
     <DateComponent />
+    <Currency />
     <Weather />
     <Slider />
     <Video />

@@ -17,7 +17,7 @@ const Weather: React.FC = () => {
   const intl = useIntl()
   const { currentCountry } = useTypedSelector((state) => state.countriesReducer)
   const [weatherData, setWeatherData] = useState<IWeatherData | undefined>()
-  const { language } = useTypedSelector( (state) => state.language)
+  const { language } = useTypedSelector((state) => state.language)
   const weather = weatherData?.weather[0]
   const iconUrl = 'http://openweathermap.org/img/w/' + weather?.icon + '.png'
 
