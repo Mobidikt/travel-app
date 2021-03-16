@@ -51,6 +51,7 @@ export interface SetCurrentCountryAction {
 
 export interface FetchCountriesAction {
   type: CountriesActionTypes.FETCH_COUNTRIES;
+  payload: string | null;
 }
 
 export interface FilterCountriesAction {

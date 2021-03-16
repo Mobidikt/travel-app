@@ -10,9 +10,8 @@ const { Content } = Layout
 
 const DefaultLayout: React.FC = () => {
   const { fetchCountries } = useActions()
-
   useEffect(() => {
-    fetchCountries()
+    fetchCountries(null)
   }, [fetchCountries])
 
   return (
