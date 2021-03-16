@@ -1,27 +1,19 @@
 .music {
-    width: 60%;
-    max-width: 200px;
-    display: flex;
-    justify-content: space-around;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 200px;
     border: none;
     border-radius: 15px;
     border: 1px solid black;
     background: #e4e3ffa6;
-&__button{
-    border-radius: 50%;
-    background-color: transparent;
-    min-height: 48px;
-    cursor: pointer;
+    &__title{
+        text-align: center;
+        font-size: 36px;
+        margin: 0;
+    }
+    &__wrapper{
+        display: flex;
+        justify-content: space-around;
+    }
 }
-}
-// &__btn{
-//     background-color: transparent;
-
-//     &:hover {
-//         background-color: transparent !important;
-//         color: black
-//     }
-//     &:active {
-//         background-color: transparent !important;
-//         color: black 
-//     }

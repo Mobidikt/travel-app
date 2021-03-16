@@ -12,6 +12,7 @@ import config from '../../config'
 
 import './Header.scss'
 import useTypedSelector from '../../hooks/useTypedSelector'
+import Music from '../Music/Music'
 
 const Header: React.FC = () => {
   const intl = useIntl()
@@ -85,6 +86,7 @@ const Header: React.FC = () => {
           : `${intl.formatMessage({ id: 'Travel_to_the' })}
           ${currentCountry?.country ? nameCountry(currentCountry.country) : ''}`}
       </h1>
+      <Music />
     </header>
   )
 }
