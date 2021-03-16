@@ -1,0 +1,19 @@
+.music {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 200px;
+    border: none;
+    border-radius: 15px;
+    border: 1px solid black;
+    background: #e4e3ffa6;
+    &__title{
+        text-align: center;
+        font-size: 36px;
+        margin: 0;
+    }
+    &__wrapper{
+        display: flex;
+        justify-content: space-around;
+    }
+}

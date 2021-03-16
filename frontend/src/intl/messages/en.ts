@@ -22,5 +22,6 @@ export default {
     mi_hr: 'm/h',
     search_country: 'Search сountry',
     Registration_was_successful: 'Registration was successful',
+    music: 'Music',
   },
 }

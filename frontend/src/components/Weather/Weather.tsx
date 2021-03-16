@@ -38,7 +38,7 @@ const Weather: React.FC = () => {
         console.log('error:' + error)
       })
   }, [currentCountry, language])
-
+  console.log(weatherData)
   return (
     <div className="weather">
       { weatherData ?
