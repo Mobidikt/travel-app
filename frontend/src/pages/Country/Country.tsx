@@ -28,6 +28,7 @@ const Country: React.FC = () => {
 
   useEffect(() => {
     setCurrentCountry(id)
+    window.scrollTo(0, 0)
     // eslint-disable-next-line
   }, [id])
 
