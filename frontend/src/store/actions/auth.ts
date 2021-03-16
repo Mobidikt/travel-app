@@ -10,11 +10,16 @@ import {
   RequestedRegistrationAction,
   RequestedRegistrationSucceededAction,
   RequestedRegistrationFailedAction,
+  SetIsVisibleProfileCardAction,
   ClearAction,
 } from '../types/auth'
 
 const setIsVisibleAuthCard = (): SetIsVisibleAuthCardAction => ({
   type: AuthActionTypes.SET_IS_VISIBLE_AUTH_CARD,
+})
+
+const setIsVisibleProfileCard = (): SetIsVisibleProfileCardAction => ({
+  type: AuthActionTypes.SET_IS_VISIBLE_PROFILE_CARD,
 })
 
 const fetchLogin = (email: string, password: string): FetchLoginAction => ({
@@ -30,9 +35,10 @@ const requestedLoginSucceeded = (
   token: string,
   photo: string,
   email: string,
+  username: string,
 ): RequestedLoginSucceededAction => ({
   type: AuthActionTypes.REQUESTED_LOGIN_SUCCEEDED,
-  payload: { token, photo, email },
+  payload: { token, photo, email, username },
 })
 
 const requestedLoginFailed = (errorMessage: string): RequestedLoginFailedAction => ({
@@ -83,4 +89,5 @@ export default {
   requestedRegistrationSucceeded,
   requestedRegistrationFailed,
   clearErros,
+  setIsVisibleProfileCard,
 }

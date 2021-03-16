@@ -1,5 +1,6 @@
 export interface AuthState {
   userPhoto: string | null;
+  username: string | null;
   token: string | null;
   isLoading: boolean;
   isLoginError: boolean;
@@ -8,6 +9,7 @@ export interface AuthState {
   isVisibleAuthCard: boolean;
   isRegistrated: boolean;
   email: string | null;
+  isVisibleProfile: boolean;
 }
 
 export enum AuthActionTypes {
@@ -22,6 +24,7 @@ export enum AuthActionTypes {
   SET_IS_VISIBLE_AUTH_CARD = 'AUTH/SET_IS_VISIBLE_AUTH_CARD',
   LOGOUT = 'AUTH/LOGOUT',
   CLEAR_ERRORS = 'AUTH/CLEAR_ERRORS',
+  SET_IS_VISIBLE_PROFILE_CARD = 'AUTH/SET_IS_VISIBLE_PROFILE_CARD',
 }
 
 export interface RequestedLoginAction {
@@ -30,7 +33,7 @@ export interface RequestedLoginAction {
 
 export interface RequestedLoginSucceededAction {
   type: AuthActionTypes.REQUESTED_LOGIN_SUCCEEDED;
-  payload: { token: string, photo: string, email: string };
+  payload: { token: string, photo: string, email: string, username: string };
 }
 
 export interface RequestedLoginFailedAction {
@@ -44,6 +47,10 @@ export interface FetchLoginAction {
 }
 export interface SetIsVisibleAuthCardAction {
   type: AuthActionTypes.SET_IS_VISIBLE_AUTH_CARD;
+}
+
+export interface SetIsVisibleProfileCardAction {
+  type: AuthActionTypes.SET_IS_VISIBLE_PROFILE_CARD;
 }
 
 export interface RequestedRegistrationAction {
@@ -84,3 +91,4 @@ export type AuthAction =
   | RequestedRegistrationSucceededAction
   | RequestedRegistrationAction
   | ClearAction
+  | SetIsVisibleProfileCardAction
