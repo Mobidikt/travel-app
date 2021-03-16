@@ -1,6 +1,9 @@
+.country-card {
+  flex-basis: 23%;  
+}
+
 .ant-card {
   margin: 15px;
-  flex-basis: 30%;
 
   &-meta-detail {
     text-align: center;
@@ -16,9 +19,14 @@
 }
 
 
-
-@media (max-width: 876px) {
-  .ant-card {
+@media (max-width: 900px) {
+  .country-card {
     flex-basis: 50%;
+  }
+}
+
+@media (max-width: 700px) {
+  .country-card {
+    flex-basis: 100%;
   }
 }

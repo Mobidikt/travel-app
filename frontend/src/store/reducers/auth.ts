@@ -55,7 +55,6 @@ const reducer = (state = initialState, action: AuthAction): AuthState => {
       return {
         ...state,
         isVisibleAuthCard: !state.isVisibleAuthCard,
-        isVisibleProfile: false,
       }
     }
 
@@ -63,7 +62,6 @@ const reducer = (state = initialState, action: AuthAction): AuthState => {
       return {
         ...state,
         isVisibleProfile: !state.isVisibleProfile,
-        isVisibleAuthCard: false,
       }
     }
 

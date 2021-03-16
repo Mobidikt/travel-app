@@ -25,12 +25,13 @@ const Weather: React.FC = () => {
     const URL =
       'http://api.openweathermap.org/data/2.5/weather?q=' +
       currentCountry?.capital +
-      '&appid=a86d572e7f2e5fc588cef32d4597491f&units=metric&lang=' + language
+      '&appid=a86d572e7f2e5fc588cef32d4597491f&units=metric&lang=' +
+      language
 
     fetch(URL)
       .then((res) => res.json())
       .then((json) => {
-        if (json.cod <= '400' ) {
+        if (json.cod <= '400') {
           setWeatherData(json)
         }
       })
@@ -38,22 +39,31 @@ const Weather: React.FC = () => {
         console.log('error:' + error)
       })
   }, [currentCountry, language])
-  console.log(weatherData)
   return (
     <div className="weather">
-      { weatherData ?
+      {weatherData ? (
         <div className="weather__inner">
           <h1 className="weather__title">
             {weatherData?.name} : {weather?.description}
             <img src={iconUrl} alt={weather?.description} />
           </h1>
-          <p className="weather__property">{intl.formatMessage({ id: 'current_temperature' })}: {weatherData?.main.temp} °</p>
-          <p className="weather__property">{intl.formatMessage({ id: 'high_temperature' })}: {weatherData?.main.temp_max} °</p>
-          <p className="weather__property">{intl.formatMessage({ id: 'low_temperature' })}: {weatherData?.main.temp_min} °</p>
-          <p className="weather__property">{intl.formatMessage({ id: 'wind_speed' })}: {weatherData?.wind.speed} {intl.formatMessage({ id: 'mi_hr' })}</p>
-        </div> :
+          <p className="weather__property">
+            {intl.formatMessage({ id: 'current_temperature' })}: {weatherData?.main.temp} °
+          </p>
+          <p className="weather__property">
+            {intl.formatMessage({ id: 'high_temperature' })}: {weatherData?.main.temp_max} °
+          </p>
+          <p className="weather__property">
+            {intl.formatMessage({ id: 'low_temperature' })}: {weatherData?.main.temp_min} °
+          </p>
+          <p className="weather__property">
+            {intl.formatMessage({ id: 'wind_speed' })}: {weatherData?.wind.speed}{' '}
+            {intl.formatMessage({ id: 'mi_hr' })}
+          </p>
+        </div>
+      ) : (
         <h2>Weather Api Not Available</h2>
-      }
+      )}
     </div>
   )
 }
