@@ -18,8 +18,8 @@ const Weather: React.FC = () => {
   const { currentCountry } = useTypedSelector((state) => state.countriesReducer)
   const [weatherData, setWeatherData] = useState<IWeatherData | undefined>()
   const { language } = useTypedSelector( (state) => state.language)
-  const weather = weatherData?.weather[0]
-  const iconUrl = 'http://openweathermap.org/img/w/' + weather?.icon + '.png'
+  // const weather = weatherData?.weather[0]
+  // const iconUrl = 'http://openweathermap.org/img/w/' + weather?.icon + '.png'
 
   useEffect(() => {
     const URL =
@@ -38,10 +38,10 @@ const Weather: React.FC = () => {
         console.log('error:' + error)
       })
   }, [currentCountry, language])
-
+  console.log(weatherData)
   return (
     <div className="weather">
-      { weatherData ?
+      {/* { weatherData ?
         <div className="weather__inner">
           <h1 className="weather__title">
             {weatherData?.name} : {weather?.description}
@@ -52,7 +52,7 @@ const Weather: React.FC = () => {
           <p className="weather__property">{intl.formatMessage({ id: 'low_temperature' })}: {weatherData?.main.temp_min} °</p>
           <p className="weather__property">{intl.formatMessage({ id: 'wind_speed' })}: {weatherData?.wind.speed} {intl.formatMessage({ id: 'mi_hr' })}</p>
         </div> :
-        <h2>Weather Api Not Found</h2>
+        <h2>Weather Api Not Found</h2> }*/
       }
     </div>
   )

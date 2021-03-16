@@ -1,9 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useIntl } from 'react-intl'
 import './Slider.scss'
 import { Row, Col, Carousel, Spin } from 'antd'
 import { useParams } from 'react-router-dom'
-import { LeftOutlined, RightOutlined } from '@ant-design/icons'
+import {
+  LeftOutlined,
+  RightOutlined,
+  FullscreenExitOutlined,
+  FullscreenOutlined,
+} from '@ant-design/icons'
 import useTypedSelector from '../../hooks/useTypedSelector'
 import useActions from '../../hooks/useActions'
 import Grades from '../Grades/Grades'
@@ -58,6 +63,7 @@ const settings = {
 }
 
 const CarouselArrows = () => {
+  const [fullScreen, setFullScreen] = useState(false)
   const intl = useIntl()
   const { attraction, isLoading } = useTypedSelector((state) => state.attractionsReducer)
   const { language } = useTypedSelector((state) => state.language)
@@ -71,6 +77,9 @@ const CarouselArrows = () => {
   // eslint-disable-next-line
 
   if (isLoading) return <Spin />
+  const zoomMap = () => {
+    setFullScreen(!fullScreen)
+  }
 
   return (
     <div className="slider">
@@ -97,6 +106,9 @@ const CarouselArrows = () => {
                 </div>
               )
             })}
+            {/* <button className="map__btn" type="button" onClick={zoomMap}>
+              {fullScreen ? <FullscreenExitOutlined /> : <FullscreenOutlined />}
+            </button> */}
           </Carousel>
         </Col>
       </Row>

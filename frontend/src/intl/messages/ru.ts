@@ -22,5 +22,6 @@ export default {
     mi_hr: 'м/ч',
     search_country: 'Поиск страны',
     Registration_was_successful: 'Регистрации прошла успешно',
+    music: 'Музыка',
   },
 }
