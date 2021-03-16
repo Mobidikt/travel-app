@@ -15,7 +15,7 @@ interface IWeatherData {
 const Weather: React.FC = () => {
   const { currentCountry } = useTypedSelector((state) => state.countriesReducer)
   const [weatherData, setWeatherData] = useState<IWeatherData | undefined>()
-  const { language } = useTypedSelector( (state) => state.language)
+  const { language } = useTypedSelector((state) => state.language)
   const weather = weatherData?.weather[0]
   const iconUrl = 'http://openweathermap.org/img/w/' + weather?.icon + '.png'
 
@@ -23,7 +23,8 @@ const Weather: React.FC = () => {
     const URL =
       'http://api.openweathermap.org/data/2.5/weather?q=' +
       currentCountry?.capital +
-      '&appid=b1b35bba8b434a28a0be2a3e1071ae5b&units=metric&lang=' + language
+      '&appid=b1b35bba8b434a28a0be2a3e1071ae5b&units=metric&lang=' +
+      language
     fetch(URL)
       .then((res) => res.json())
       .then((json) => {

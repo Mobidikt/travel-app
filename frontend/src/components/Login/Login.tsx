@@ -18,7 +18,6 @@ interface LoginFormData {
 }
 
 const Login: React.FC = () => {
-  const intl = useIntl()
   const { fetchLogin } = useActions()
   const { errorMessage, isLoginError } = useTypedSelector((state) => state.authReducer)
 

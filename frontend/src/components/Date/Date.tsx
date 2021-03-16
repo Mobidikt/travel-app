@@ -6,10 +6,10 @@ import useTypedSelector from '../../hooks/useTypedSelector'
 
 const DateComponent: React.FC = () => {
   const { currentCountry } = useTypedSelector((state) => state.countriesReducer)
-  const { language } = useTypedSelector( (state) => state.language)
+  const { language } = useTypedSelector((state) => state.language)
   const [date, setDate] = useState('')
   const getDate = () => {
-    const options: { [key: string]: string|undefined } = {
+    const options: { [key: string]: string | undefined } = {
       day: 'numeric',
       month: 'long',
       year: 'numeric',

@@ -90,7 +90,7 @@ const CarouselArrows = () => {
                     <div className="card-slider__info">
                       <h3 className="card-slider__title">{item.name}</h3>
                       <p className="card-slider__description">{item.description}</p>
-                      {/* <Grades attractionId={item.name} /> */}
+                      {/* <Grades attractionId={item._id} /> */}
                     </div>
                   </div>
                 </div>

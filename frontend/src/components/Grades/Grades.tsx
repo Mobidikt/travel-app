@@ -3,12 +3,12 @@ import { Rate } from 'antd'
 import { StarOutlined, StarFilled } from '@ant-design/icons'
 import useTypedSelector from '../../hooks/useTypedSelector'
 
-const Grades: React.FunctionComponent<{ attractionId: number }> = ({ attractionId }) => {
+const Grades: React.FunctionComponent<{ attractionId: string }> = ({ attractionId }) => {
   const { currentCountry } = useTypedSelector((state) => state.countriesReducer)
   const [grade, setGrade] = useState<number>(5)
   /* useEffect(() => {
     const HOST = 'http://localhost:8000'
-    const id: number = attractionId
+    const id: string = attractionId
     const URL = `${HOST}/grade/${id}`
     const ac = new AbortController()
     fetch(URL)
@@ -22,7 +22,7 @@ const Grades: React.FunctionComponent<{ attractionId: number }> = ({ attractionI
       value: num,
     }
     const HOST = 'http://localhost:8000'
-    const id: number = attractionId
+    const id: string = attractionId
     const URL = `${HOST}/grade/${id}/${num}`
     const ac = new AbortController()
     fetch(URL, {

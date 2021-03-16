@@ -43,7 +43,6 @@ const Header: React.FC = () => {
           <div className="menu-bar">
             <LanguageSelect />
             {mainLocation ? <SearchField /> : null}
-            {/* {mainLocation ? <Grades /> : null} */}
           </div>
           {token ? (
             <div className="user-info">
