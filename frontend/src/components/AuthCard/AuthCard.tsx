@@ -8,7 +8,6 @@ import useTypedSelector from '../../hooks/useTypedSelector'
 import useActions from '../../hooks/useActions'
 
 import './AuthCard.scss'
-import config from '../../config'
 
 const AuthCard: React.FC = () => {
   const intl = useIntl()
@@ -18,7 +17,7 @@ const AuthCard: React.FC = () => {
     { title: 'Register', isActive: false },
   ])
 
-  const { isVisibleAuthCard, userPhoto } = useTypedSelector((state) => state.authReducer)
+  const { isVisibleAuthCard } = useTypedSelector((state) => state.authReducer)
   const { setIsVisibleAuthCard } = useActions()
 
   const activeClickHandler = (activeTitle: string) => {

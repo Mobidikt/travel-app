@@ -6,7 +6,6 @@ import { useParams } from 'react-router-dom'
 import { LeftOutlined, RightOutlined } from '@ant-design/icons'
 import useTypedSelector from '../../hooks/useTypedSelector'
 import useActions from '../../hooks/useActions'
-import config from '../../config'
 import Grades from '../Grades/Grades'
 
 const SampleNextArrow = (props: any) => {
@@ -31,7 +30,7 @@ const SampleNextArrow = (props: any) => {
   )
 }
 
-const SamplePrevArrow = (props: any) => {
+const SamplePrevArrow: React.FC = (props: any) => {
   // eslint-disable-next-line
   const { className, style, onClick } = props
   return (

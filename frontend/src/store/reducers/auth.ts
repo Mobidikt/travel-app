@@ -1,4 +1,3 @@
-import { nodeModuleNameResolver } from 'typescript'
 import { AuthState, AuthActionTypes, AuthAction } from '../types/auth'
 
 const initialState: AuthState = {

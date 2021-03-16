@@ -41,4 +41,5 @@ export default {
   requestedAttractionsSucceeded,
   requestedAttractionsFailed,
   setNewScore,
+  setAttractions,
 }

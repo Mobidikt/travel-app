@@ -1,6 +1,5 @@
 import axios from 'axios'
 import config from '../config'
-import { RegistrationType } from '../components/Registration/Registration'
 
 type ResponseRegisterType = {
   data: string,

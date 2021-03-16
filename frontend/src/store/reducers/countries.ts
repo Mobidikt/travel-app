@@ -47,7 +47,7 @@ const reducer = (state = initialState, action: CountriesAction): CountriesState 
     case CountriesActionTypes.FILTER_COUNTRIES: {
       const regExp = new RegExp(action.payload, 'ig')
       // eslint-disable-next-line
-      const newCountries = initialState.countries.filter((country) => {
+      const newCountries = state.countries.filter((country) => {
         if (regExp.test(country.country) || regExp.test(country.capital)) {
           return country
         }
