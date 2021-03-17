@@ -23,7 +23,7 @@ const Weather: React.FC = () => {
 
   useEffect(() => {
     const URL =
-      'http://api.openweathermap.org/data/2.5/weather?q=' +
+      'https://api.openweathermap.org/data/2.5/weather?q=' +
       currentCountry?.capital +
       '&appid=a86d572e7f2e5fc588cef32d4597491f&units=metric&lang=' +
       language
