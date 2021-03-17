@@ -16,11 +16,12 @@
     "url": "https://github.com/Mobidikt/travel-app/issues"
   },
   "homepage": "https://github.com/Mobidikt/travel-app#readme",
-  "devDependencies": {
-    "concurrently": "^6.0.0"
-  },
+  "devDependencies": {},
   "engines": {
     "node": "10.x",
     "npm": "6.14.x"
+  },
+  "dependencies": {
+    "concurrently": "^6.0.0"
   }
 }
