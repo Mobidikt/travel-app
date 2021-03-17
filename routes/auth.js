@@ -12,9 +12,12 @@ router.post(
     upload.single('photo'),
     check('email', 'Некоректный email').isEmail(),
     check('name', 'Поле должно быть заполнено').notEmpty(),
-    check('password', 'Минимальная длина пароля 6 символов').isLength({ min: 6 }),
+    check('password', 'Минимальная длина пароля 6 символов').isLength({
+      min: 6,
+    }),
   ],
   controller.register,
 )
+router.patch('/update', upload.single('photo'), controller.update)
 
 module.exports = router

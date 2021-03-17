@@ -17,6 +17,11 @@ type ResponseLoginType = {
   status: number,
 }
 
+type UpdateResponse = {
+  name: string,
+  photo: string | null,
+}
+
 const register = async (name: string, email: string, password: string, photo: File | null) => {
   const fd = new FormData()
   fd.append('name', name)
@@ -39,7 +44,21 @@ const login = async (email: string, password: string) => {
   return data
 }
 
+const update = async (email: string, name: string, photo: File | null) => {
+  const fd = new FormData()
+
+  fd.append('email', email)
+  fd.append('name', name)
+
+  if (photo) {
+    fd.append('photo', photo, photo.name)
+  }
+  const data = await axios.patch<UpdateResponse>(`${config.API_URL || ''}/auth/update`, fd)
+  return data
+}
+
 export default {
   register,
   login,
+  update,
 }

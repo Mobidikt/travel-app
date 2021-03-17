@@ -19,7 +19,14 @@
 }
 
 
-@media (max-width: 900px) {
+@media (max-width: 1450px) {
+  .country-card {
+    flex-basis: 33%;
+  }
+}
+
+
+@media (max-width: 1012px) {
   .country-card {
     flex-basis: 50%;
   }
