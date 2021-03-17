@@ -28,5 +28,10 @@ export default {
     photo: 'Photo',
     save: 'Save',
     can_load_photo: 'You can upload your photo',
+    authorized_users: 'This feature is only available to authorized users',
+    error_grades: 'You have already appreciated this attraction',
+    succses_grades: 'You have successfully evaluated this attraction',
+    not_grades: 'No one has yet appreciated this attraction',
+    rating: 'Rating',
   },
 }
