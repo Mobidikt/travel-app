@@ -25,13 +25,6 @@ const Header: React.FC = () => {
   const { setIsVisibleAuthCard, setIsVisibleProfileCard, logout } = useActions()
   const { language } = useTypedSelector((state) => state.language)
 
-  const avatarRef = useRef<HTMLElement>(null)
-
-  useEffect(() => {
-    avatarRef.current?.addEventListener('click', () => setIsVisibleProfileCard())
-    // eslint-disable-next-line
-  }, [])
-
   const ending = (country: string) => {
     if (country === 'Доминиканская Республика') {
       return 'Доминиканской Республики'
@@ -54,7 +47,7 @@ const Header: React.FC = () => {
   return (
     <header className="header" style={backgroundHeader}>
       <AuthCard />
-      <UserProfile />
+      {token ? <UserProfile /> : null}
       <div className="header__wrapper">
         <Link to="/countries">
           <img src={logo} className="header__logo" alt="logo" />
@@ -68,22 +61,35 @@ const Header: React.FC = () => {
             <div className="user-info">
               {userPhoto ? (
                 <div>
-                  <Avatar
-                    ref={avatarRef}
-                    size={40}
-                    src={
-                      <img
-                        className="avatar"
-                        src={`${config.API_URL || ''}/${userPhoto || ''}`}
-                        alt="avatar"
-                      />
-                    }
-                  />
+                  <Button
+                    className="profile"
+                    shape="circle"
+                    onClick={() => setIsVisibleProfileCard()}
+                  >
+                    <img
+                      className="profile"
+                      src={`${config.API_URL || ''}/${userPhoto || ''}`}
+                      alt="avatar"
+                    />
+                  </Button>
                 </div>
               ) : (
-                <Avatar ref={avatarRef} icon={<UserOutlined />} />
+                <Button
+                  className="profile"
+                  shape="circle"
+                  onClick={() => setIsVisibleProfileCard()}
+                  icon={<UserOutlined />}
+                />
               )}
-              <Button size="large" shape="round" onClick={logout} icon={<LogoutOutlined />}>
+              <Button
+                size="large"
+                shape="round"
+                onClick={() => {
+                  logout()
+                  setIsVisibleProfileCard(false)
+                }}
+                icon={<LogoutOutlined />}
+              >
                 {intl.formatMessage({ id: 'Exit' })}
               </Button>
             </div>

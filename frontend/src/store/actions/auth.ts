@@ -12,14 +12,16 @@ import {
   RequestedRegistrationFailedAction,
   SetIsVisibleProfileCardAction,
   ClearAction,
+  UpdateUserAction,
 } from '../types/auth'
 
 const setIsVisibleAuthCard = (): SetIsVisibleAuthCardAction => ({
   type: AuthActionTypes.SET_IS_VISIBLE_AUTH_CARD,
 })
 
-const setIsVisibleProfileCard = (): SetIsVisibleProfileCardAction => ({
+const setIsVisibleProfileCard = (status?: boolean): SetIsVisibleProfileCardAction => ({
   type: AuthActionTypes.SET_IS_VISIBLE_PROFILE_CARD,
+  payload: status,
 })
 
 const fetchLogin = (email: string, password: string): FetchLoginAction => ({
@@ -77,6 +79,11 @@ const logout = (): LogoutAction => ({
   type: AuthActionTypes.LOGOUT,
 })
 
+const updateUser = (name: string, photo: string | null): UpdateUserAction => ({
+  type: AuthActionTypes.UPDATE_USER,
+  payload: { name, photo },
+})
+
 export default {
   setIsVisibleAuthCard,
   requestedLogin,
@@ -90,4 +97,5 @@ export default {
   requestedRegistrationFailed,
   clearErros,
   setIsVisibleProfileCard,
+  updateUser,
 }

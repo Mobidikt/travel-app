@@ -25,6 +25,12 @@ export enum AuthActionTypes {
   LOGOUT = 'AUTH/LOGOUT',
   CLEAR_ERRORS = 'AUTH/CLEAR_ERRORS',
   SET_IS_VISIBLE_PROFILE_CARD = 'AUTH/SET_IS_VISIBLE_PROFILE_CARD',
+  UPDATE_USER = 'AUTH/UPDATE_USER',
+}
+
+export interface UpdateUserAction {
+  type: AuthActionTypes.UPDATE_USER;
+  payload: { name: string, photo: string | null };
 }
 
 export interface RequestedLoginAction {
@@ -51,6 +57,7 @@ export interface SetIsVisibleAuthCardAction {
 
 export interface SetIsVisibleProfileCardAction {
   type: AuthActionTypes.SET_IS_VISIBLE_PROFILE_CARD;
+  payload?: boolean;
 }
 
 export interface RequestedRegistrationAction {
@@ -92,3 +99,4 @@ export type AuthAction =
   | RequestedRegistrationAction
   | ClearAction
   | SetIsVisibleProfileCardAction
+  | UpdateUserAction

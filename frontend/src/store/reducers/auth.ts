@@ -59,9 +59,11 @@ const reducer = (state = initialState, action: AuthAction): AuthState => {
     }
 
     case AuthActionTypes.SET_IS_VISIBLE_PROFILE_CARD: {
+      let newStatus = !state.isVisibleProfile
+      if (action.payload === false) newStatus = action.payload
       return {
         ...state,
-        isVisibleProfile: !state.isVisibleProfile,
+        isVisibleProfile: newStatus,
       }
     }
 
@@ -99,6 +101,7 @@ const reducer = (state = initialState, action: AuthAction): AuthState => {
         userPhoto: null,
         token: null,
         email: null,
+        username: null,
       }
     }
 
@@ -108,6 +111,18 @@ const reducer = (state = initialState, action: AuthAction): AuthState => {
         errorMessage: null,
         isLoginError: false,
         isRegistrated: false,
+      }
+    }
+
+    case AuthActionTypes.UPDATE_USER: {
+      if (action.payload.photo) {
+        localStorage.setItem('photo', action.payload.photo)
+      }
+      localStorage.setItem('username', action.payload.name)
+      return {
+        ...state,
+        userPhoto: action.payload.photo,
+        username: action.payload.name,
       }
     }
 

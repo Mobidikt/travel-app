@@ -1,10 +1,16 @@
-import React, { useRef, useState } from 'react'
-import { Card, Form, Input, Button } from 'antd'
+import React, { useRef, useState, useEffect } from 'react'
+import { Card, Form, Input, Button, message } from 'antd'
 import { CloseOutlined } from '@ant-design/icons'
 import useTypedSelector from '../../hooks/useTypedSelector'
 import './UserProfile.scss'
 import useActions from '../../hooks/useActions'
 import config from '../../config'
+import AuthApi from '../../services/AuthApi'
+
+type ValuesType = {
+  email: string,
+  username: string,
+}
 
 const validateMessages = {
   required: 'Обязательное поле',
@@ -12,15 +18,21 @@ const validateMessages = {
 
 const UserProfile: React.FC = () => {
   const fileInput = useRef<HTMLInputElement>(null)
+  const successMessage = useRef(() => {})
 
   const { isVisibleProfile, email, username, userPhoto } = useTypedSelector(
     (state) => state.authReducer,
   )
-  const { setIsVisibleProfileCard } = useActions()
+
+  const { setIsVisibleProfileCard, updateUser } = useActions()
 
   const initImgSrc = userPhoto ? `${config.API_URL || ''}/${userPhoto || ''}` : undefined
 
   const [imgSrc, setImgSrc] = useState<string | undefined>(initImgSrc)
+
+  useEffect(() => {
+    successMessage.current()
+  }, [username])
 
   const changeAvatar = () => {
     const photo = fileInput.current?.files?.length === 1 ? fileInput.current.files[0] : null
@@ -42,13 +54,22 @@ const UserProfile: React.FC = () => {
     cardClasses += ' profile-card--hide'
   }
 
-  const onFinish = () => {
+  const onFinish = async (values: ValuesType) => {
     const photo = fileInput.current?.files?.length === 1 ? fileInput.current.files[0] : null
+
+    const { data } = await AuthApi.update(values.email, values.username, photo)
+    updateUser(data.name, data.photo)
+
+    successMessage.current = () => {
+      // eslint-disable-next-line
+      message.success('Данные успешно изменены')
+    }
+    setIsVisibleProfileCard(false)
   }
 
   return (
     <Card className={cardClasses}>
-      <CloseOutlined className="auth-card__close" onClick={setIsVisibleProfileCard} />
+      <CloseOutlined className="auth-card__close" onClick={() => setIsVisibleProfileCard(false)} />
       <div className="profile-card-header">
         <h2>Ваш Профиль</h2>
       </div>
@@ -59,8 +80,8 @@ const UserProfile: React.FC = () => {
         validateMessages={validateMessages}
         onFinish={onFinish}
       >
-        <Form.Item label="E-mail" name="email">
-          <Input defaultValue={email || ''} disabled className="form__input email" />
+        <Form.Item label="E-mail" name="email" initialValue={email}>
+          <Input disabled className="form__input email" />
         </Form.Item>
         <Form.Item
           label="Имя пользователя"
