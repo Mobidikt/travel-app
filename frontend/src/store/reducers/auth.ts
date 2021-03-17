@@ -36,6 +36,7 @@ const reducer = (state = initialState, action: AuthAction): AuthState => {
         ...state,
         token: action.payload.token,
         userPhoto: action.payload.photo,
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         email: action.payload.email,
         username: action.payload.username,
         isLoading: false,

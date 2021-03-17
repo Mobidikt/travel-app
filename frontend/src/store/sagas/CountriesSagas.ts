@@ -5,6 +5,7 @@ import actions from '../actions/countries'
 import CountryApi from '../../services/CountryApi'
 
 function* fetchCountries(action: FetchCountriesAction) {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const currentCountryId = action.payload
   try {
     yield put(actions.requestedCountries())

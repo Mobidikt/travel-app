@@ -30,6 +30,7 @@ const requestedAttractionsFailed = (err: string): AttractionAction => ({
 })
 
 const setNewScore = (id: string, email: string, stars: number): AttractionAction => ({
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   type: AttractionActionTypes.SET_NEW_SCORE,
   payload: { id, email, stars },
 })

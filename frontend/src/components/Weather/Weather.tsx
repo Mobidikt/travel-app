@@ -25,7 +25,7 @@ const Weather: React.FC = () => {
     const URL =
       'http://api.openweathermap.org/data/2.5/weather?q=' +
       currentCountry?.capital +
-      '&appid=a86d572e7f2e5fc588cef32d4597491f&units=metric&lang=' +
+      '&appid=b1b35bba8b434a28a0be2a3e1071ae5b&units=metric&lang=' +
       language
 
     fetch(URL)
@@ -62,7 +62,7 @@ const Weather: React.FC = () => {
           </p>
         </div>
       ) : (
-        <h2>Weather Api Not Available</h2>
+        <h2>Weather Api Not Found</h2>
       )}
     </div>
   )
