@@ -28,5 +28,10 @@ export default {
     photo: 'Foto',
     save: 'Speichern',
     can_load_photo: 'Sie können Ihr Foto hochladen',
+    authorized_users: 'Diese Funktion steht nur autorisierten Benutzern zur Verfügung',
+    error_grades: 'Sie haben diese Sehenswürdigkeit bereits geschätzt',
+    succses_grades: 'Sie haben diese Sehenswürdigkeit erfolgreich bewertet',
+    not_grades: 'Noch hat niemand diese Sehenswürdigkeit geschätzt',
+    rating: 'Bewertung',
   },
 }

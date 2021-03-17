@@ -10,6 +10,7 @@ import React, { useState } from 'react'
 import './Music.scss'
 
 const audio = new Audio('https://z1.fm/download/16236002?play=on&ww=1583&wh=426')
+
 const Music: React.FC = () => {
   const intl = useIntl()
   const [isPlaying, setIsPlaying] = useState(false)
