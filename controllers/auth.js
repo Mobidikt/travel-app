@@ -3,7 +3,7 @@ const errorHandler = require('../utils/errorHandler')
 const bcrypt = require('bcrypt')
 const { validationResult } = require('express-validator')
 const jwt = require('jsonwebtoken')
-const { JWT_KEY } = require('../config')
+const JWT_KEY = process.env.JWT_KEY
 
 const generateAuthToken = (id) => {
   return jwt.sign({ userId: id }, JWT_KEY, {

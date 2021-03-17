@@ -3,7 +3,7 @@ const app = express()
 const morgan = require('morgan')
 const cors = require('cors')
 const flash = require('express-flash')
-const { PORT } = require('./config')
+const PORT = process.env.PORT || 8000
 
 const { connectionDB } = require('./db/db')
 
