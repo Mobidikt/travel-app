@@ -23,5 +23,10 @@ export default {
     search_country: 'Поиск страны',
     Registration_was_successful: 'Регистрации прошла успешно',
     music: 'Музыка',
+    your_profile: 'Ваш профиль',
+    user_name: 'Имя пользователя',
+    photo: 'Фото',
+    save: 'Cохранить',
+    can_load_photo: 'Вы можете загрузить свою фотографию',
   },
 }

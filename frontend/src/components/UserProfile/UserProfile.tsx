@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
+import { useIntl } from 'react-intl'
 import { Card, Form, Input, Button, message } from 'antd'
 import { CloseOutlined } from '@ant-design/icons'
 import useTypedSelector from '../../hooks/useTypedSelector'
@@ -17,6 +18,7 @@ const validateMessages = {
 }
 
 const UserProfile: React.FC = () => {
+  const intl = useIntl()
   const fileInput = useRef<HTMLInputElement>(null)
   const successMessage = useRef(() => {})
 
@@ -71,7 +73,7 @@ const UserProfile: React.FC = () => {
     <Card className={cardClasses}>
       <CloseOutlined className="auth-card__close" onClick={() => setIsVisibleProfileCard(false)} />
       <div className="profile-card-header">
-        <h2>Ваш Профиль</h2>
+        <h2>{intl.formatMessage({ id: 'your_profile' })}</h2>
       </div>
 
       <Form
@@ -84,7 +86,7 @@ const UserProfile: React.FC = () => {
           <Input disabled className="form__input email" />
         </Form.Item>
         <Form.Item
-          label="Имя пользователя"
+          label={intl.formatMessage({ id: 'user_name' })}
           name="username"
           initialValue={username}
           rules={[{ required: true }]}
@@ -92,11 +94,11 @@ const UserProfile: React.FC = () => {
           <Input className="form__input" />
         </Form.Item>
         <div className="photo">
-          <h3 className="photo__title">Фото:</h3>
+          <h3 className="photo__title">{intl.formatMessage({ id: 'photo' })}:</h3>
           {imgSrc ? (
             <img src={imgSrc} alt="avatar" className="avatar" />
           ) : (
-            <h3>Вы можете загрузить свою фотографию</h3>
+            <h3>{intl.formatMessage({ id: 'can_load_photo' })}</h3>
           )}
         </div>
 
@@ -109,7 +111,7 @@ const UserProfile: React.FC = () => {
 
         <Form.Item>
           <Button size="large" htmlType="submit" className="form__btn">
-            Сохранить
+            {intl.formatMessage({ id: 'save' })}
           </Button>
         </Form.Item>
       </Form>

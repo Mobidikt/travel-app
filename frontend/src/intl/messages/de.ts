@@ -23,5 +23,10 @@ export default {
     search_country: 'Land suchen',
     Registration_was_successful: 'Registrierung war erfolgreich',
     music: 'Musik',
+    your_profile: 'Ihr Profil',
+    user_name: 'Benutzername',
+    photo: 'Foto',
+    save: 'Speichern',
+    can_load_photo: 'Sie können Ihr Foto hochladen',
   },
 }
