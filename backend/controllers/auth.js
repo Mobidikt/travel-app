@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt')
 const { validationResult } = require('express-validator')
 const jwt = require('jsonwebtoken')
 const { JWT_KEY } = require('../config')
+const lang = require('../db/lang')
 
 const generateAuthToken = (id) => {
   return jwt.sign({ userId: id }, JWT_KEY, {
@@ -14,19 +15,21 @@ const generateAuthToken = (id) => {
 module.exports.login = async function (req, res) {
   try {
     const { email, password } = req.body
-
+    const langCode = req.header('Language-Code')
     const user = await User.findOne({ email })
 
     if (!user) {
       return res
         .status(400)
-        .json({ message: 'Пользователь с такой почтой не найден' })
+        .json({ message: lang.auth['emailNotFound'][langCode] })
     }
 
     const validPassword = bcrypt.compareSync(password, user.password)
 
     if (!validPassword) {
-      return res.status(400).json({ message: 'Вы ввели неверный пароль' })
+      return res
+        .status(400)
+        .json({ message: lang.auth['wrongPassword'][langCode] })
     }
 
     const token = generateAuthToken(user._id)
@@ -44,10 +47,11 @@ module.exports.login = async function (req, res) {
 module.exports.register = async function (req, res) {
   try {
     const errors = validationResult(req)
-
+    const langCode = req.header('Language-Code')
     if (!errors.isEmpty()) {
-      const e = errors.errors[0].msg
-      return res.status(400).json({ message: e })
+      const e = errors.errors[0].param
+      const eWithTranslation = lang.auth[e][langCode]
+      return res.status(400).json({ message: eWithTranslation })
     }
 
     const { name, email, password } = req.body
@@ -55,9 +59,7 @@ module.exports.register = async function (req, res) {
     const candidate = await User.findOne({ email })
 
     if (candidate) {
-      return res
-        .status(400)
-        .json({ message: 'Пользователь с такой почтой уже существует' })
+      return res.status(400).json({ message: lang.auth['sameEmail'][langCode] })
     }
 
     const hashPassword = bcrypt.hashSync(password, 6)
