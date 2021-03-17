@@ -1,27 +1,44 @@
 {
-  "name": "travel-app",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "concurrently \"cd ./backend && npm run dev\" \"cd ./frontend && npm run start\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Mobidikt/travel-app.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Mobidikt/travel-app/issues"
-  },
-  "homepage": "https://github.com/Mobidikt/travel-app#readme",
-  "devDependencies": {
-    "concurrently": "^6.0.0"
-  },
-  "engines": {
-    "node": "10.x",
-    "npm": "6.14.x"
-  },
-  "dependencies": {}
+    "name": "backend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "test",
+        "start": "node index.js",
+        "dev": "nodemon index.js",
+        "pretty": "prettier --write **/*.js && git add .",
+        "lint": "eslint . --ext .js",
+        "lint:fix": "npm run lint -- --fix"
+    },
+    "eslintConfig": {
+        "extends": "airbnb-base"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "bcrypt": "^5.0.1",
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "express-flash": "0.0.2",
+        "express-session": "^1.17.1",
+        "express-validator": "^6.10.0",
+        "jsonwebtoken": "^8.5.1",
+        "moment": "^2.29.1",
+        "mongodb": "^3.6.4",
+        "mongoose": "^5.11.19",
+        "morgan": "^1.10.0",
+        "multer": "^1.4.2",
+        "validator": "^13.5.2"
+    },
+    "devDependencies": {
+        "dotenv": "^8.2.0",
+        "eslint": "^7.21.0",
+        "eslint-config-airbnb-base": "^14.2.1",
+        "eslint-config-prettier": "^8.1.0",
+        "eslint-plugin-import": "^2.22.1",
+        "nodemon": "^2.0.7",
+        "prettier": "2.2.1",
+        "express-validator": "^6.10.0"
+    }
 }
