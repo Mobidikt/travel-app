@@ -54,3 +54,21 @@
 .form__btn {
   margin-top: 40px;
 }
+
+
+
+@media (max-width: 650px) {
+  .profile-card {
+    z-index: 200;
+    margin: 10px 4px 2px 0px;
+    right: -10px;
+    top: 105px;
+  }
+  .auth-card__close {
+    top: 17px;
+  }
+  .ant-card-body {
+    padding: 0;
+ 
+  }
+}

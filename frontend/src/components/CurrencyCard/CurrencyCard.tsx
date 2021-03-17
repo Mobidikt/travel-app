@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card } from 'antd'
+import { useIntl } from 'react-intl'
 import useTypedSelector from '../../hooks/useTypedSelector'
 import './CurrencyCard.scss'
 
@@ -38,6 +39,7 @@ const currencyApi: any = {
 }
 
 const CurrencyCard: React.FC = () => {
+  const intl = useIntl()
   const { currentCountry } = useTypedSelector((state) => state.countriesReducer)
 
   const currentCurrencyCode = currentCountry ? currentCountry.currency : 'EUR'
@@ -47,7 +49,7 @@ const CurrencyCard: React.FC = () => {
 
   return (
     <Card className="currency-card">
-      <h2>Курсы валют</h2>
+      <h2>{intl.formatMessage({ id: 'currencyRates' })}</h2>
       <p>
         1 USD = {usd} {currentCurrencyCode}{' '}
       </p>

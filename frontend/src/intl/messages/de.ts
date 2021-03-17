@@ -33,5 +33,6 @@ export default {
     succses_grades: 'Sie haben diese Sehenswürdigkeit erfolgreich bewertet',
     not_grades: 'Noch hat niemand diese Sehenswürdigkeit geschätzt',
     rating: 'Bewertung',
+    currencyRates: 'Wechselkurs',
   },
 }

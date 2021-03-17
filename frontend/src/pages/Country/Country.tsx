@@ -14,7 +14,6 @@ const CountryPage = (
   <div className="country-page">
     <Description />
     <DateComponent />
-    <Weather />
     <Slider />
     <Video />
     <Map />

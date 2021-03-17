@@ -4,6 +4,7 @@ import './Date.scss'
 import { useInterval } from '../../hooks/useInterval'
 import useTypedSelector from '../../hooks/useTypedSelector'
 import CurrencyCard from '../CurrencyCard/CurrencyCard'
+import Weather from '../Weather/Weather'
 
 const DateComponent: React.FC = () => {
   const { currentCountry } = useTypedSelector((state) => state.countriesReducer)
@@ -28,6 +29,7 @@ const DateComponent: React.FC = () => {
   return (
     <div className="date">
       <span>{date}</span>
+      <Weather />
       <CurrencyCard />
     </div>
   )

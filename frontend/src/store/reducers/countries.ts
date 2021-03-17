@@ -3,7 +3,7 @@ import { CountriesAction, CountriesActionTypes, CountriesState } from '../types/
 
 const cointriesFromStorage: string | null = localStorage.getItem('countries')
 
-const initCountries = cointriesFromStorage ? JSON.parse(cointriesFromStorage) : []
+let initCountries = cointriesFromStorage ? JSON.parse(cointriesFromStorage) : []
 
 const initialState: CountriesState = {
   countries: initCountries,
@@ -23,6 +23,7 @@ const reducer = (state = initialState, action: CountriesAction): CountriesState 
 
     case CountriesActionTypes.REQUESTED_COUNTRIES_SUCCEEDED: {
       localStorage.setItem('countries', JSON.stringify(action.payload))
+      initCountries = action.payload
       return {
         ...state,
         isLoading: false,
@@ -47,14 +48,19 @@ const reducer = (state = initialState, action: CountriesAction): CountriesState 
     case CountriesActionTypes.FILTER_COUNTRIES: {
       const regExp = new RegExp(action.payload, 'ig')
       // eslint-disable-next-line
-      const newCountries = state.countries.filter((country) => {
+      let newCountries = state.countries.filter((country) => {
         if (regExp.test(country.country) || regExp.test(country.capital)) {
           return country
         }
       })
+
+      if (!action.payload) {
+        newCountries = initCountries
+      }
+
       return {
         ...state,
-        countries: newCountries.length ? newCountries : state.countries,
+        countries: newCountries.length ? newCountries : initCountries,
       }
     }
     default:

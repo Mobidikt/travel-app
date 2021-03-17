@@ -16,7 +16,6 @@ const loadLang = () => {
     // eslint-disable-next-line
     return (initLang = 'ru')
   }
-  initLang = 'de'
 }
 loadLang()
 const initialState: LanguageState = {

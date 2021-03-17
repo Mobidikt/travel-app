@@ -33,5 +33,6 @@ export default {
     succses_grades: 'You have successfully evaluated this attraction',
     not_grades: 'No one has yet appreciated this attraction',
     rating: 'Rating',
+    currencyRates: 'currency exchange rates',
   },
 }
