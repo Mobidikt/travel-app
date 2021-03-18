@@ -20,7 +20,7 @@ interface LoginFormData {
 const Login: React.FC = () => {
   const intl = useIntl()
   const { fetchLogin } = useActions()
-  const { errorMessage, isLoginError } = useTypedSelector((state) => state.authReducer)
+  const { errorMessage, isLoginError, isLoading } = useTypedSelector((state) => state.authReducer)
 
   const onFinish = (values: LoginFormData) => {
     const { email, password } = values
@@ -49,7 +49,7 @@ const Login: React.FC = () => {
         </Form.Item>
 
         <Form.Item>
-          <Button size="large" htmlType="submit" className="form__btn">
+          <Button size="large" htmlType="submit" className="form__btn" loading={isLoading}>
             {intl.formatMessage({ id: 'Login' })}
           </Button>
         </Form.Item>

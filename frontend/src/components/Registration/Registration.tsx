@@ -23,7 +23,7 @@ const validateMessages = {
 const Registration: React.FC = () => {
   const intl = useIntl()
   const { fetchRegistation } = useActions()
-  const { errorMessage, isRegistrationError, isRegistrated } = useTypedSelector(
+  const { errorMessage, isRegistrationError, isRegistrated, isLoading } = useTypedSelector(
     (state) => state.authReducer,
   )
 
@@ -82,7 +82,7 @@ const Registration: React.FC = () => {
         <input className="form__input form__input--file" type="file" ref={fileInput} />
 
         <Form.Item>
-          <Button size="large" htmlType="submit" className="form__btn">
+          <Button size="large" htmlType="submit" className="form__btn" loading={isLoading}>
             {intl.formatMessage({ id: 'Register' })}
           </Button>
         </Form.Item>
