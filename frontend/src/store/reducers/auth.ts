@@ -88,6 +88,7 @@ const reducer = (state = initialState, action: AuthAction): AuthState => {
         ...state,
         errorMessage: action.payload,
         isRegistrationError: true,
+        isLoading: false,
       }
     }
 
