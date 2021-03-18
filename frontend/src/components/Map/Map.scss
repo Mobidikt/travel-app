@@ -1,0 +1,42 @@
+.map{
+    margin-bottom: 40px;
+    &__wrapper{
+        position:relative;
+        overflow:hidden;
+        width: 85%;
+        margin: 0 auto;
+        height: 40vh;
+        min-height: 500px;
+    }
+    &__iframe{
+        width: 100%;
+        height: 100%;
+        border: none;
+        position:relative;
+    }
+    &__btn{
+        position: absolute;
+        top: 50px;
+        right: 10px;
+        z-index: 9990;
+        cursor: pointer;
+    }
+    &__full-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+    }
+    &__title{
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 48px;
+        line-height: 65px;
+        align-items: center;
+        text-align: center;
+    }
+}

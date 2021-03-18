@@ -1,0 +1,28 @@
+.weather {
+  text-align: center;
+  border: 2px #fafafa solid;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  background: white;
+  width: 40%;
+  margin: 20px auto;
+
+  &__title {
+    margin: 0;
+    color: grey;
+  }
+
+  &__property {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 600px){
+  .weather {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 500px){
+  .weather {
+    width: 90%;
+  }
+}
