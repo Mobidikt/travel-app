@@ -1,0 +1,39 @@
+.country-card {
+  flex-basis: 23%;  
+}
+
+.ant-card {
+  margin: 15px;
+
+  &-meta-detail {
+    text-align: center;
+  }
+
+
+  &-cover {
+    img {
+      height: 228px;
+      object-fit: cover;
+    }
+  }
+}
+
+
+@media (max-width: 1450px) {
+  .country-card {
+    flex-basis: 33%;
+  }
+}
+
+
+@media (max-width: 1012px) {
+  .country-card {
+    flex-basis: 50%;
+  }
+}
+
+@media (max-width: 700px) {
+  .country-card {
+    flex-basis: 100%;
+  }
+}

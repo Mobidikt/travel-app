@@ -1,0 +1,74 @@
+.profile-card {
+  position: absolute;
+  right: 105px;
+  top: 85px;
+  max-width: 435px;
+  border: none;
+  border-radius: 15px;
+  background: #e4e3ffa6;
+
+
+  &--hide {
+    display: none;
+  }
+
+  &-header {
+    width: 260px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+
+&__close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+  }
+}
+
+.email:disabled {
+  color: black;
+  cursor: default;
+}
+
+.photo__title {
+  margin-right: 10px;
+}
+
+.photo {
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.avatar {
+  margin-bottom: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.form__btn {
+  margin-top: 40px;
+}
+
+
+
+@media (max-width: 650px) {
+  .profile-card {
+    z-index: 200;
+    margin: 10px 4px 2px 0px;
+    right: -10px;
+    top: 105px;
+  }
+  .auth-card__close {
+    top: 17px;
+  }
+  .ant-card-body {
+    padding: 0;
+ 
+  }
+}

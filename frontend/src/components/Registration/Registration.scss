@@ -1,0 +1,33 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__input {
+    width: 310px;
+    border-radius: 10px;
+    border: 2px solid #F2F2F2;
+    background: transparent;
+
+    &--file {
+      border-radius: 5px;
+    }
+  }
+
+  &__btn {
+    margin-top: 15px;
+    border: none;
+    border-radius: 8px;
+    color: black !important;
+    min-width: 250px;
+    height: 40px;
+    background: #F2F2F2;
+    text-transform: uppercase;
+
+    &:hover {
+      background: #f7f3f3;
+      transition: 0.3s all;
+    }
+
+
+  }
+}
